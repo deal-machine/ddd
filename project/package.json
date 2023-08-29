@@ -1,0 +1,16 @@
+{
+  "name": "studies",
+  "version": "1.0.0",
+  "description": "<br> <h1 align=\"center\"> Domain Driven Design </h1> <h4 align=\"right\"> Algo tão filosófico quanto técnico. </h4>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "typescript": "^5.2.2"
+  }
+}
