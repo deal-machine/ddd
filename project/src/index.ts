@@ -14,7 +14,7 @@ const address = new Address({
   zipcode: "1820000",
 });
 customer.changeAddress(address);
-print(customer.address.toString());
+print(address.toString());
 
 const orderItem = new OrderItem({
   id: "1234",
@@ -28,7 +28,7 @@ const orderItemTwo = new OrderItem({
 });
 
 const order = new Order({
-  customerId: customer.id,
+  customerId: customer.getId(),
   id: "123123",
   items: [orderItem, orderItemTwo],
 });
