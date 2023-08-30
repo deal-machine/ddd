@@ -1,4 +1,4 @@
-import { IAddress } from "../protocols";
+import { AddressAttributes } from "../protocols";
 
 export type CustomerConstructor = {
   id: string;
@@ -8,13 +8,18 @@ export type CustomerConstructor = {
 export type CustomerAttributes = {
   id: string;
   name: string;
-  address: IAddress;
-  active: boolean;
+  address: AddressAttributes;
+  status: boolean;
 };
 
 export interface ICustomer {
   changeName: (name: string) => void;
   activate: () => void;
   deactivate: () => void;
-  changeAddress: (address: IAddress) => void;
+  changeAddress: (address: AddressAttributes) => void;
+
+  getName(): string;
+  getId(): string;
+  getAddress(): AddressAttributes;
+  getStatus(): boolean;
 }
