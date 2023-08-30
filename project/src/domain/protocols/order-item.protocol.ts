@@ -11,6 +11,7 @@ export type OrderItemAttributes = {
 };
 
 export interface IOrderItem {
-  toString(): string;
   increaseValue(value: number): number;
+  getPrice(): number;
+  toString(): string;
 }
