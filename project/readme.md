@@ -1,4 +1,4 @@
-# _Domain-Driven Design_ - DDD
+<!-- # _Domain-Driven Design_ - DDD
 
 #### É algo teórico e conceitual.
 
@@ -265,13 +265,13 @@ Contextos:
             <li>Domain Expert vai contar a história</li>
             <li>Ouvintes quaisquer interessados</li>
             <li>Moderador vai conduzir as conversas e manter dentro dos assuntos de interesse</li>
-            <li>Modelador irá desenhar os fluxos das histórias na linguagem adequada e com anotações</li>           
+            <li>Modelador irá desenhar os fluxos das histórias na linguagem adequada e com anotações</li>
         </ul>
         <br>
 </dl>
 <br>
 <h1 align="center"> Event Storming </h1>
-<h4 align="right"> Visa ser leve e dinâmico, 
+<h4 align="right"> Visa ser leve e dinâmico,
 utiliza-se de ferramentas didaticas como postits, papeis, cards coloridos </h4>
 
 <h2 align="justify"> Reunião essencial para identificar melhor os elementos do DDD. É um método baseado em workshop para descobrir rapidamente o que está acontecendo no domínio de um programa de software </h2>
@@ -284,10 +284,10 @@ utiliza-se de ferramentas didaticas como postits, papeis, cards coloridos </h4>
         algo que aconteceu e as pessoas se importam
         </li>
         <li>
-        sempre no passado, pode ser cronometrado, resultado de algo importante        
+        sempre no passado, pode ser cronometrado, resultado de algo importante
         </li>
         <li>
-        são gerados através de sistemas, telas, politicas e até outros eventos  
+        são gerados através de sistemas, telas, politicas e até outros eventos
         </li>
         <li>
         eventos são definidos por domain experts
@@ -299,10 +299,10 @@ utiliza-se de ferramentas didaticas como postits, papeis, cards coloridos </h4>
         inverso do evento
         </li>
         <li>
-        ação iniciada pelo ator, sempre no presente        
+        ação iniciada pelo ator, sempre no presente
         </li>
         <li>
-        para todo evento há um comando realizado  
+        para todo evento há um comando realizado
         </li>
     </ul>
     linha do tempo
@@ -354,4 +354,4 @@ utiliza-se de ferramentas didaticas como postits, papeis, cards coloridos </h4>
 </a>
             </figcaption>
             </figure>
-        </div>
+        </div> -->
