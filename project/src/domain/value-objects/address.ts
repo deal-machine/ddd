@@ -1,5 +1,5 @@
 import { AttributeException } from "../errors";
-import { IAddress } from "../protocols";
+import { AddressConstructor, IAddress } from "../protocols";
 
 export class Address implements IAddress {
   readonly zipcode: string;
@@ -8,7 +8,7 @@ export class Address implements IAddress {
   readonly country: string;
   readonly city: string;
 
-  constructor(address: IAddress) {
+  constructor(address: AddressConstructor) {
     this.zipcode = address.zipcode;
     this.number = address.number;
     this.street = address.street;
