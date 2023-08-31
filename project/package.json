@@ -1,15 +1,18 @@
 {
-  "name": "studies",
+  "name": "ddd",
   "version": "1.0.0",
-  "description": "<br> <h1 align=\"center\"> Domain Driven Design </h1> <h4 align=\"right\"> Algo tão filosófico quanto técnico. </h4>",
+  "description": "Domain Driven Design",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "test": "jest ",
+    "test": "jest",
     "test:coverage": "jest --collectCoverage"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ddd",
+    "domain-driven-design"
+  ],
+  "author": "95deal@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@swc/cli": "^0.1.62",
