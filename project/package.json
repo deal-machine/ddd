@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "test": "jest",
-    "test:coverage": "jest --collectCoverage"
+    "test": "npm run tsc -- --noEmit && jest",
+    "test:coverage": "npm run tsc -- --noEmit && jest --collectCoverage",
+    "tsc": "tsc"
   },
   "keywords": [
     "ddd",

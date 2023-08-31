@@ -33,6 +33,7 @@ const config: Config = {
     "jest.config.ts",
     "index.ts",
     "/protocols/",
+    ".protocol.ts",
   ],
 
   // Indicates which provider should be used to instrument code for coverage
