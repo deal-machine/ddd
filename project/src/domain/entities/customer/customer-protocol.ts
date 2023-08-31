@@ -10,6 +10,7 @@ export type CustomerAttributes = {
   name: string;
   address: AddressAttributes;
   status: boolean;
+  rewardPoints: number;
 };
 
 export interface ICustomer {
@@ -17,9 +18,9 @@ export interface ICustomer {
   activate: () => void;
   deactivate: () => void;
   changeAddress: (address: AddressAttributes) => void;
-
   getName(): string;
   getId(): string;
   getAddress(): AddressAttributes;
   getStatus(): boolean;
+  getRewardPoints(): number;
 }

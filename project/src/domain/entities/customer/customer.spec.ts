@@ -183,4 +183,38 @@ describe("Customer Entity", () => {
       expect(status).toBeTruthy();
     });
   });
+  describe("increaseRewardPoints", () => {
+    it("should throw DomainException when value is less than 0", () => {
+      const customer = new Customer({
+        id: "id-test",
+        name: "name-test",
+      });
+      expect(() => customer.increaseRewardPoints(-1)).toThrowError(
+        DomainException
+      );
+      expect(() => customer.increaseRewardPoints(0)).toThrowError(
+        "value should be positive"
+      );
+    });
+    it("shoud increase value in customer reward points", () => {
+      const customer = new Customer({
+        id: "id-test",
+        name: "name-test",
+      });
+      expect(customer.getRewardPoints()).toBe(0);
+      customer.increaseRewardPoints(100);
+      expect(customer.getRewardPoints()).toBe(100);
+      customer.increaseRewardPoints(1);
+      expect(customer.getRewardPoints()).toBe(101);
+    });
+  });
+  describe("getRewardPoints", () => {
+    it("shoud return customer reward points", () => {
+      const customer = new Customer({
+        id: "id-test",
+        name: "name-test",
+      });
+      expect(customer.getRewardPoints()).toBe(0);
+    });
+  });
 });

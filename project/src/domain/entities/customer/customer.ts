@@ -11,6 +11,7 @@ export class Customer implements ICustomer {
   private name: string;
   private address!: AddressAttributes;
   private status: boolean;
+  private rewardPoints: number = 0;
 
   constructor({ id, name }: CustomerConstructor) {
     this.validate({ id, name });
@@ -61,5 +62,16 @@ export class Customer implements ICustomer {
 
   getStatus(): boolean {
     return this.status;
+  }
+
+  increaseRewardPoints(value: number): number {
+    if (value < 1) throw new DomainException("value should be positive");
+
+    this.rewardPoints += value;
+    return this.rewardPoints;
+  }
+
+  getRewardPoints(): number {
+    return this.rewardPoints;
   }
 }

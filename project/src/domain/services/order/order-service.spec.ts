@@ -1,7 +1,51 @@
 import { Customer, Order, OrderItem, Product } from "../../entities";
+import { DomainException } from "../../errors";
 import { OrderService } from "./order-service";
 
 describe("Order Service", () => {
+  describe("placeOrder", () => {
+    it("should increaseRewardPoints in customer and return a new order", () => {
+      const customer = new Customer({
+        id: "id",
+        name: "name",
+      });
+      const orderItem = new OrderItem({
+        id: "id",
+        name: "name",
+        productId: "productId",
+        price: 50,
+        quantity: 2,
+      });
+
+      const order = OrderService.placeOrder({
+        customer,
+        orderItems: [orderItem],
+      });
+
+      expect(order).toBeTruthy();
+      expect(order.getTotal()).toBe(100);
+      expect(customer.getRewardPoints()).toBe(50);
+    });
+
+    it("should throw when orderItems is an empty array", () => {
+      const customer = new Customer({
+        id: "id",
+        name: "name",
+      });
+
+      try {
+        OrderService.placeOrder({
+          customer,
+          orderItems: [],
+        });
+      } catch (error: any) {
+        expect(error).toBeTruthy();
+        expect(error).toBeInstanceOf(DomainException);
+        expect(error.message).toBe("Order must include at least one OrderItem");
+        expect(error.name).toBe("DomainException");
+      }
+    });
+  });
   describe("total", () => {
     it("should return total of order price", () => {
       //Arrange
