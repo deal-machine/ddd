@@ -1,8 +1,8 @@
-import { AttributeException, DomainException } from "../errors";
-import { ICustomer } from "../protocols";
-import { Customer } from "./customer";
+import { AttributeException, DomainException } from "../../errors";
+import { Customer } from "../customer/customer";
+import { ICustomer } from "../customer/customer.protocol";
+import { OrderItem } from "../order-item/order-item";
 import { Order } from "./order";
-import { OrderItem } from "./order-item";
 
 let customer: ICustomer;
 let orderItem: OrderItem;
@@ -18,11 +18,15 @@ describe("Order Entity", () => {
       id: "id-orderitem-test",
       name: "name-orderitem-test",
       price: 51,
+      productId: "product-id",
+      quantity: 1,
     });
     orderItemTwo = new OrderItem({
       id: "id-orderitem-test-two",
       name: "name-orderitem-test-two",
       price: 15,
+      productId: "product-id",
+      quantity: 1,
     });
   });
 
@@ -68,6 +72,18 @@ describe("Order Entity", () => {
         expect(error.message).toBe("Order must include at least one OrderItem");
         expect(error.name).toBe("DomainException");
       }
+    });
+    it("should create new Order correctly", () => {
+      const order = new Order({
+        id: "id",
+        customerId: customer.getId(),
+        items: [orderItem, orderItemTwo],
+      });
+      expect(order).toBeTruthy();
+      expect(order).toHaveProperty("id");
+      expect(order).toHaveProperty("customerId");
+      expect(order).toHaveProperty("items");
+      expect(order).toHaveProperty("total");
     });
   });
   describe("getTotal", () => {

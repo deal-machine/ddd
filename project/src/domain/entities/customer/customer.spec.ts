@@ -2,8 +2,8 @@ import {
   AttributeException,
   DomainException,
   NotFoundException,
-} from "../errors";
-import { Address } from "../value-objects/address";
+} from "../../errors";
+import { Address } from "../../value-objects/address/address";
 import { Customer } from "./customer";
 
 describe("Customer Entity", () => {

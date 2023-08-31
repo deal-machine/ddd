@@ -1,7 +1,18 @@
-import { AttributeException, DomainException } from "../errors";
+import { AttributeException, DomainException } from "../../errors";
+import { Product } from "../product/product";
 import { OrderItem } from "./order-item";
 
+let product: Product;
+
 describe("OrderItem Entity", () => {
+  beforeAll(() => {
+    product = new Product({
+      id: "product-id",
+      name: "product-name",
+      description: "product-description",
+      category: "product-category",
+    });
+  });
   describe("constructor validate", () => {
     it("should throw AttributeException when id is empty", () => {
       try {
@@ -9,6 +20,8 @@ describe("OrderItem Entity", () => {
           id: "",
           name: "Tester",
           price: 50,
+          productId: product.getId(),
+          quantity: 2,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
@@ -23,6 +36,8 @@ describe("OrderItem Entity", () => {
           id: "id-testing",
           name: "",
           price: 5,
+          productId: product.getId(),
+          quantity: 2,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
@@ -37,6 +52,8 @@ describe("OrderItem Entity", () => {
           id: "id-testing",
           name: "name-testing",
           price: 0,
+          productId: product.getId(),
+          quantity: 2,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
@@ -45,11 +62,47 @@ describe("OrderItem Entity", () => {
         expect(error.name).toBe("AttributeException");
       }
     });
+    it("should throw DomainException when productId is empty", () => {
+      try {
+        new OrderItem({
+          id: "id-testing",
+          name: "name-testing",
+          price: 10,
+          productId: "",
+          quantity: 2,
+        });
+      } catch (error: any) {
+        expect(error).toBeTruthy();
+        expect(error).toBeInstanceOf(DomainException);
+        expect(error.message).toBe(
+          "OrderItem must have relation with a product"
+        );
+        expect(error.name).toBe("DomainException");
+      }
+    });
+    it("should throw DomainException when quantity is empty", () => {
+      try {
+        new OrderItem({
+          id: "id-testing",
+          name: "name-testing",
+          price: 10,
+          productId: "productId-test",
+          quantity: 0,
+        });
+      } catch (error: any) {
+        expect(error).toBeTruthy();
+        expect(error).toBeInstanceOf(DomainException);
+        expect(error.message).toBe("Quantity must be greater than 0");
+        expect(error.name).toBe("DomainException");
+      }
+    });
     it("should create new OrderItem correctly", () => {
       const orderItem = new OrderItem({
         id: "id-test",
         name: "name-test",
         price: 11,
+        productId: product.getId(),
+        quantity: 2,
       });
       expect(orderItem).toBeTruthy();
       expect(orderItem).toHaveProperty("id");
@@ -63,6 +116,8 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 50,
+        productId: product.getId(),
+        quantity: 2,
       });
       expect(() => orderItem.increaseValue(-1)).toThrowError(DomainException);
       expect(() => orderItem.increaseValue(0)).toThrowError(
@@ -74,9 +129,11 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 50,
+        productId: product.getId(),
+        quantity: 2,
       });
       orderItem.increaseValue(50);
-      expect(orderItem.getPrice()).toBe(100);
+      expect(orderItem.getPrice()).toBe(150);
     });
   });
   describe("getPrice", () => {
@@ -85,20 +142,35 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 123,
+        productId: product.getId(),
+        quantity: 2,
       });
-      expect(orderItem.getPrice()).toBe(123);
+      expect(orderItem.getPrice()).toBe(246);
     });
   });
-  describe("toString", () => {
-    it("should return entity in string format", () => {
+  describe("getProductId", () => {
+    it("should return productId", () => {
+      const productId = product.getId();
       const orderItem = new OrderItem({
         id: "id-tester",
         name: "tester",
-        price: 1,
+        price: 123,
+        productId,
+        quantity: 2,
       });
-      expect(orderItem.toString()).toBe(
-        "id: id-tester, name: tester, price: 1"
-      );
+      expect(orderItem.getProductId()).toBe(productId);
+    });
+  });
+  describe("getQuantity", () => {
+    it("should return quantity", () => {
+      const orderItem = new OrderItem({
+        id: "id-tester",
+        name: "tester",
+        price: 123,
+        productId: product.getId(),
+        quantity: 2,
+      });
+      expect(orderItem.getQuantity()).toBe(2);
     });
   });
 });

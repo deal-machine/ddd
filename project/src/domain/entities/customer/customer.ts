@@ -2,12 +2,9 @@ import {
   AttributeException,
   DomainException,
   NotFoundException,
-} from "../errors/index";
-import {
-  ICustomer,
-  CustomerConstructor,
-  AddressAttributes,
-} from "../protocols";
+} from "../../errors/index";
+import { AddressAttributes } from "../../value-objects/address/address.protocol";
+import { CustomerConstructor, ICustomer } from "./customer.protocol";
 
 export class Customer implements ICustomer {
   private id: string;
@@ -16,17 +13,17 @@ export class Customer implements ICustomer {
   private status: boolean;
 
   constructor({ id, name }: CustomerConstructor) {
+    this.validate({ id, name });
+
     this.id = id;
     this.name = name;
     this.status = true;
-
-    this.validate();
   }
 
-  private validate() {
-    if (!this.id) throw new AttributeException("id is required");
+  private validate({ id, name }: CustomerConstructor) {
+    if (!id) throw new AttributeException("id is required");
 
-    if (!this.name) throw new AttributeException("name is required");
+    if (!name) throw new AttributeException("name is required");
   }
 
   changeName(name: string) {
@@ -50,12 +47,10 @@ export class Customer implements ICustomer {
   }
 
   getId(): string {
-    this.validate();
     return this.id;
   }
 
   getName(): string {
-    this.validate();
     return this.name;
   }
 

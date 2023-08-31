@@ -1,4 +1,4 @@
-import { AttributeException } from "../errors";
+import { AttributeException } from "../../errors";
 import { Address } from "./address";
 
 describe("Address ValueObject", () => {
