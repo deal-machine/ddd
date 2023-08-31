@@ -1,4 +1,4 @@
-import { AttributeException } from "../../errors";
+import { AttributeException, DomainException } from "../../errors";
 import { Product } from "./product";
 
 describe("Product Entity", () => {
@@ -10,6 +10,7 @@ describe("Product Entity", () => {
           name: "name-product-test",
           description: "description-product-test",
           category: "category-product-test",
+          price: 5,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
@@ -25,6 +26,7 @@ describe("Product Entity", () => {
           name: "",
           description: "description-product-test",
           category: "category-product-test",
+          price: 5,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
@@ -40,6 +42,7 @@ describe("Product Entity", () => {
           name: "name-product-test",
           description: "",
           category: "category-product-test",
+          price: 5,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
@@ -55,11 +58,28 @@ describe("Product Entity", () => {
           name: "name-product-test",
           description: "description-product-test",
           category: "",
+          price: 5,
         });
       } catch (error: any) {
         expect(error).toBeTruthy();
         expect(error).toBeInstanceOf(AttributeException);
         expect(error.message).toBe("category is required");
+        expect(error.name).toBe("AttributeException");
+      }
+    });
+    it("should throw AttributeException when price is empty", () => {
+      try {
+        new Product({
+          id: "id-product-test",
+          name: "name-product-test",
+          description: "description-product-test",
+          category: "category-product-test",
+          price: 0,
+        });
+      } catch (error: any) {
+        expect(error).toBeTruthy();
+        expect(error).toBeInstanceOf(AttributeException);
+        expect(error.message).toBe("price is required");
         expect(error.name).toBe("AttributeException");
       }
     });
@@ -69,12 +89,39 @@ describe("Product Entity", () => {
         name: "name-test",
         description: "description-test",
         category: "category-test",
+        price: 5,
       });
       expect(product).toBeTruthy();
       expect(product).toHaveProperty("id");
       expect(product).toHaveProperty("name");
       expect(product).toHaveProperty("description");
       expect(product).toHaveProperty("category");
+    });
+  });
+  describe("increaseValue", () => {
+    it("should throw DomainException when value is less than 0", () => {
+      const product = new Product({
+        id: "id-test",
+        name: "name-test",
+        description: "description-test",
+        category: "category-test",
+        price: 5,
+      });
+      expect(() => product.increaseValue(-1)).toThrowError(DomainException);
+      expect(() => product.increaseValue(0)).toThrowError(
+        "value should be positive"
+      );
+    });
+    it("should return price added value", () => {
+      const product = new Product({
+        id: "id-test",
+        name: "name-test",
+        description: "description-test",
+        category: "category-test",
+        price: 5,
+      });
+      product.increaseValue(50);
+      expect(product.getPrice()).toBe(55);
     });
   });
   describe("getId", () => {
@@ -84,6 +131,7 @@ describe("Product Entity", () => {
         name: "name-product-test",
         description: "description-product-test",
         category: "category-product-test",
+        price: 5,
       });
       expect(product.getId()).toBeTruthy();
       expect(product.getId()).toBe("id-product-test");
@@ -96,6 +144,7 @@ describe("Product Entity", () => {
         name: "name-product-test",
         description: "description-product-test",
         category: "category-product-test",
+        price: 5,
       });
       expect(product.getName()).toBeTruthy();
       expect(product.getName()).toBe("name-product-test");
@@ -108,6 +157,7 @@ describe("Product Entity", () => {
         name: "name-product-test",
         description: "description-product-test",
         category: "category-product-test",
+        price: 5,
       });
       expect(product.getDescription()).toBeTruthy();
       expect(product.getDescription()).toBe("description-product-test");
@@ -120,9 +170,23 @@ describe("Product Entity", () => {
         name: "name-product-test",
         description: "description-product-test",
         category: "category-product-test",
+        price: 5,
       });
       expect(product.getCategory()).toBeTruthy();
       expect(product.getCategory()).toBe("category-product-test");
+    });
+  });
+  describe("getPrice", () => {
+    it("should return price category", () => {
+      const product = new Product({
+        id: "id-product-test",
+        name: "name-product-test",
+        description: "description-product-test",
+        category: "category-product-test",
+        price: 5,
+      });
+      expect(product.getPrice()).toBeTruthy();
+      expect(product.getPrice()).toBe(5);
     });
   });
 });

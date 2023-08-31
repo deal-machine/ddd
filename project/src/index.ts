@@ -20,6 +20,7 @@ const product = new Product({
   name: "product-name",
   category: "product-category",
   description: "product-description",
+  price: 5,
 });
 
 const orderItem = new OrderItem({

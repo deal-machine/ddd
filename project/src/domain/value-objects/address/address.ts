@@ -1,5 +1,5 @@
 import { AttributeException } from "../../errors";
-import { AddressConstructor, IAddress } from "./address.protocol";
+import { AddressConstructor, IAddress } from "./address-protocol";
 
 export class Address implements IAddress {
   readonly zipcode: string;

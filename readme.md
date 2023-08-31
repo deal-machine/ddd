@@ -198,10 +198,14 @@ Contextos:
 
 ### _Domain Services_ - Serviços de Domínio
 
+> "A Service in the domain is a stateless operation that fulfills a domain-specific task. Often the best indication that you should create a Service in the domain model is when the operation you need to perform feels out of place as a method on an Aggregate or a Value Object."
+
+- são _stateless_, não armazenam dados ou estados;
 - implementam a lógica de negócios de acordo com as definições de um domain expert;
 - trabalham com diversos fluxos e diversas entidades e agregações;
+- podem envolver operações em lote ou muitas entidades;
 - utilizam repositórios como interface de acesso aos dados;
-- consomem recursos da camada de infraestrutura.
+- consomem recursos da camada de infraestrutura, através de adapter.
 
 <br>
 

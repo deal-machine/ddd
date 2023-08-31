@@ -11,6 +11,7 @@ describe("OrderItem Entity", () => {
       name: "product-name",
       description: "product-description",
       category: "product-category",
+      price: 5,
     });
   });
   describe("constructor validate", () => {

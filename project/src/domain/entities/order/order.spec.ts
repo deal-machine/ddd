@@ -1,6 +1,6 @@
 import { AttributeException, DomainException } from "../../errors";
 import { Customer } from "../customer/customer";
-import { ICustomer } from "../customer/customer.protocol";
+import { ICustomer } from "../customer/customer-protocol";
 import { OrderItem } from "../order-item/order-item";
 import { Order } from "./order";
 

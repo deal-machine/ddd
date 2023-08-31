@@ -1,5 +1,5 @@
 import { AttributeException, DomainException } from "../../errors";
-import { IOrderItem, OrderItemConstructor } from "./order-item.protocol";
+import { IOrderItem, OrderItemConstructor } from "./order-item-protocol";
 
 export class OrderItem implements IOrderItem {
   private id: string;

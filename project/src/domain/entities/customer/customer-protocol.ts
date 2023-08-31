@@ -1,4 +1,4 @@
-import { AddressAttributes } from "../../value-objects/address/address.protocol";
+import { AddressAttributes } from "../../value-objects/address/address-protocol";
 
 export type CustomerConstructor = {
   id: string;

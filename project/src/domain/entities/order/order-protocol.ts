@@ -1,5 +1,5 @@
 import { OrderItem } from "..";
-import { OrderItemAttributes } from "../order-item/order-item.protocol";
+import { OrderItemAttributes } from "../order-item/order-item-protocol";
 
 export type OrderAttributes = {
   id: string;

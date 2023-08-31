@@ -3,8 +3,8 @@ import {
   DomainException,
   NotFoundException,
 } from "../../errors/index";
-import { AddressAttributes } from "../../value-objects/address/address.protocol";
-import { CustomerConstructor, ICustomer } from "./customer.protocol";
+import { AddressAttributes } from "../../value-objects/address/address-protocol";
+import { CustomerConstructor, ICustomer } from "./customer-protocol";
 
 export class Customer implements ICustomer {
   private id: string;

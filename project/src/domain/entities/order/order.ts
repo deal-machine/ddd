@@ -1,6 +1,6 @@
 import { AttributeException, DomainException } from "../../errors";
 import { OrderItem } from "../order-item/order-item";
-import { IOrder, OrderConstructor } from "./order.protocol";
+import { IOrder, OrderConstructor } from "./order-protocol";
 
 export class Order implements IOrder {
   private id: string;
