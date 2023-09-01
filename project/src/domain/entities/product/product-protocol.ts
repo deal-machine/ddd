@@ -1,3 +1,11 @@
+export type ProductAttributes = {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  price: number;
+};
+
 export type ProductConstructor = {
   id: string;
   name: string;

@@ -34,6 +34,7 @@ const config: Config = {
     "index.ts",
     "/protocols/",
     "-protocol.ts",
+    "/protocols/",
   ],
 
   // Indicates which provider should be used to instrument code for coverage
@@ -65,10 +66,10 @@ const config: Config = {
   // forceCoverageMatch: [],
 
   // A path to a module which exports an async function that is triggered once before all test suites
-  // globalSetup: undefined,
+  globalSetup: "./src/main/configs/setup-tests/global-setup.ts",
 
   // A path to a module which exports an async function that is triggered once after all test suites
-  // globalTeardown: undefined,
+  globalTeardown: "./src/main/configs/setup-tests/global-teardown.ts",
 
   // A set of global variables that need to be available in all test environments
   // globals: {},
@@ -141,7 +142,7 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  // setupFilesAfterEnv: ["./src/main/configs/setup-tests/global-middleware.ts"],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -175,7 +176,7 @@ const config: Config = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    "^.+\\.(t|j)sx?$": "ts-jest",
   },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

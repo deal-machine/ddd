@@ -39,10 +39,22 @@ describe("Customer Entity", () => {
         id: "id-test",
         name: "name-test",
       });
+
       expect(customer).toBeTruthy();
       expect(customer).toHaveProperty("id");
       expect(customer).toHaveProperty("name");
       expect(customer).toHaveProperty("status");
+
+      const address = new Address({
+        city: "city",
+        country: "country",
+        number: 1,
+        street: "street",
+        zipcode: "zipcode",
+      });
+
+      customer.changeAddress(address);
+
       expect(customer).toHaveProperty("address");
     });
   });
