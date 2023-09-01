@@ -3,3 +3,4 @@ project/package-lock.json
 project/coverage
 project/dist/tsconfig.tsbuildinfo
 project/dist
+project/.env
