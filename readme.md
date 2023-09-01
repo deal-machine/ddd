@@ -187,10 +187,12 @@ Contextos:
 
 ### _Repositories_ - Repositórios
 
-- tem acesso direto a camada de dados;
-- persiste dados utilizando as entidades;
-- métodos de consultas;
+> Esses objetos semelhantes a coleções são sobre persistência. Todo tipo _Agregado_ persistente terá um Repositório. De um modo geral, existe uma relação um-para-um entre um tipo Agregado e um Repositório.
+
+- local de armazenamento;
 - cria-se repositório por agregador, não por entidade;
+- possui métodos de consultas;
+- tem acesso direto a camada de dados;
 - pode consultar diretamente serviços externos;
 - possibilidade de validar dados no construtor do objeto.
 
