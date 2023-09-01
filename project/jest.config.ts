@@ -35,6 +35,7 @@ const config: Config = {
     "/protocols/",
     "-protocol.ts",
     "/protocols/",
+    "connections.ts",
   ],
 
   // Indicates which provider should be used to instrument code for coverage

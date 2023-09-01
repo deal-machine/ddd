@@ -1,3 +1,11 @@
-import { initSequelize, closeDatabase } from "./sequelize/sequelize-connection";
+import {
+  initSequelize,
+  closeDatabase,
+  getInstance,
+} from "./sequelize/instance/sequelize-instance";
+import { connection } from "./connections";
+import { SequelizeOptions } from "sequelize-typescript";
 
-export { initSequelize as initDatabase, closeDatabase };
+const initDatabase = () => initSequelize(connection as SequelizeOptions);
+
+export { initDatabase, closeDatabase, getInstance };

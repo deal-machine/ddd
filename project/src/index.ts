@@ -1,3 +1,6 @@
 import { initDatabase } from "./infrastructure/database";
 
-(async () => await initDatabase())();
+(async () => {
+  const seq = await initDatabase();
+  console.log(`\nConnected on ${seq.getDatabaseName()}\n`);
+})();
