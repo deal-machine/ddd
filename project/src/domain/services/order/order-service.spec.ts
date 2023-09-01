@@ -23,8 +23,8 @@ describe("Order Service", () => {
       });
 
       expect(order).toBeTruthy();
-      expect(order.getTotal()).toBe(100);
-      expect(customer.getRewardPoints()).toBe(50);
+      expect(order.total).toBe(100);
+      expect(customer.rewardPoints).toBe(50);
     });
 
     it("should throw when orderItems is an empty array", () => {
@@ -82,22 +82,22 @@ describe("Order Service", () => {
         quantity: 6,
       });
       const order = new Order({
-        customerId: customer.getId(),
+        customerId: customer.id,
         id: "order-id-one",
         items: [orderItem, orderItemTwo],
       });
       const orderTwo = new Order({
-        customerId: customer.getId(),
+        customerId: customer.id,
         id: "order-id-two",
         items: [orderItem],
       });
       const orderThree = new Order({
-        customerId: customer.getId(),
+        customerId: customer.id,
         id: "order-id-three",
         items: [orderItemTwo],
       });
       const orderFour = new Order({
-        customerId: customer.getId(),
+        customerId: customer.id,
         id: "order-id-three",
         items: [orderItemThree],
       });

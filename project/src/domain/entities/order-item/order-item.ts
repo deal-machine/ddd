@@ -2,20 +2,20 @@ import { AttributeException, DomainException } from "../../errors";
 import { IOrderItem, OrderItemConstructor } from "./order-item-protocol";
 
 export class OrderItem implements IOrderItem {
-  private id: string;
-  private name: string;
-  private price: number;
-  private productId: string;
-  private quantity: number;
+  private _id: string;
+  private _name: string;
+  private _price: number;
+  private _productId: string;
+  private _quantity: number;
 
   constructor({ id, name, price, productId, quantity }: OrderItemConstructor) {
     this.validate({ id, name, price, productId, quantity });
 
-    this.id = id;
-    this.name = name;
-    this.price = price * quantity;
-    this.productId = productId;
-    this.quantity = quantity;
+    this._id = id;
+    this._name = name;
+    this._price = price * quantity;
+    this._productId = productId;
+    this._quantity = quantity;
   }
 
   private validate({
@@ -40,19 +40,30 @@ export class OrderItem implements IOrderItem {
 
   increaseValue(value: number): number {
     if (value < 1) throw new DomainException("value should be positive");
-    this.price += value;
-    return this.price;
+
+    this._price += value;
+    return this._price;
   }
 
-  getPrice(): number {
-    return this.price;
+  get id(): string {
+    return this._id;
   }
 
-  getProductId(): string {
-    return this.productId;
+  get name(): string {
+    return this._name;
   }
 
-  getQuantity(): number {
-    return this.quantity;
+  get price(): number {
+    return this._price;
   }
+
+  /*
+  get productId(): string {
+    return this._productId;
+  }
+
+  get quantity(): number {
+    return this._quantity;
+  }
+  */
 }

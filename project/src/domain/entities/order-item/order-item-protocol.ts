@@ -6,17 +6,10 @@ export type OrderItemConstructor = {
   quantity: number;
 };
 
-export type OrderItemAttributes = {
-  id: string;
-  name: string;
-  price: number;
-  productId: string;
-  quantity: number;
-};
-
 export interface IOrderItem {
-  increaseValue(value: number): number;
-  getPrice(): number;
-  getProductId(): string;
-  getQuantity(): number;
+  get id(): string;
+  get name(): string;
+  get price(): number;
+  // get productId(): string;
+  // get quantity(): number;
 }

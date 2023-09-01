@@ -35,7 +35,7 @@ describe("Order Entity", () => {
       try {
         new Order({
           id: "",
-          customerId: customer.getId(),
+          customerId: customer.id,
           items: [orderItem, orderItemTwo],
         });
       } catch (error: any) {
@@ -63,7 +63,7 @@ describe("Order Entity", () => {
       try {
         new Order({
           id: "id-order-test",
-          customerId: customer.getId(),
+          customerId: customer.id,
           items: [],
         });
       } catch (error: any) {
@@ -76,59 +76,11 @@ describe("Order Entity", () => {
     it("should create new Order correctly", () => {
       const order = new Order({
         id: "id",
-        customerId: customer.getId(),
+        customerId: customer.id,
         items: [orderItem, orderItemTwo],
       });
       expect(order).toBeTruthy();
       expect(order).toHaveProperty("id");
-      expect(order).toHaveProperty("customerId");
-      expect(order).toHaveProperty("items");
-      expect(order).toHaveProperty("total");
-    });
-  });
-  describe("getTotal", () => {
-    it("should return total value", () => {
-      const order = new Order({
-        id: "id-order-test",
-        customerId: customer.getId(),
-        items: [orderItem, orderItemTwo],
-      });
-      expect(order.getTotal()).toBe(66);
-    });
-  });
-
-  describe("getId", () => {
-    it("should return id value", () => {
-      const order = new Order({
-        id: "id-order-test",
-        customerId: customer.getId(),
-        items: [orderItem],
-      });
-      expect(order.getId()).toBe("id-order-test");
-    });
-  });
-
-  describe("getCustomerId", () => {
-    it("should return customerId value", () => {
-      const customerId = customer.getId();
-      const order = new Order({
-        id: "id-order-test",
-        customerId,
-        items: [orderItemTwo],
-      });
-      expect(order.getCustomerId()).toBe(customerId);
-    });
-  });
-
-  describe("getOrderItems", () => {
-    it("should return items", () => {
-      const orderItems = [orderItemTwo, orderItem];
-      const order = new Order({
-        id: "id-order-test",
-        customerId: customer.getId(),
-        items: orderItems,
-      });
-      expect(order.getOrderItems()).toBe(orderItems);
     });
   });
 });

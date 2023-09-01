@@ -5,22 +5,15 @@ export type CustomerConstructor = {
   name: string;
 };
 
-export type CustomerAttributes = {
-  id: string;
-  name: string;
-  address: AddressAttributes;
-  status: boolean;
-  rewardPoints: number;
-};
-
 export interface ICustomer {
   changeName: (name: string) => void;
   activate: () => void;
   deactivate: () => void;
   changeAddress: (address: AddressAttributes) => void;
-  getName(): string;
-  getId(): string;
-  getAddress(): AddressAttributes;
-  getStatus(): boolean;
-  getRewardPoints(): number;
+
+  get name(): string;
+  get id(): string;
+  get address(): AddressAttributes;
+  get status(): boolean;
+  get rewardPoints(): number;
 }

@@ -7,18 +7,18 @@ import { AddressAttributes } from "../../value-objects/address/address-protocol"
 import { CustomerConstructor, ICustomer } from "./customer-protocol";
 
 export class Customer implements ICustomer {
-  private id: string;
-  private name: string;
-  private address!: AddressAttributes;
-  private status: boolean;
-  private rewardPoints: number = 0;
+  private _id: string;
+  private _name: string;
+  private _address!: AddressAttributes;
+  private _status: boolean;
+  private _rewardPoints: number = 0;
 
   constructor({ id, name }: CustomerConstructor) {
     this.validate({ id, name });
 
-    this.id = id;
-    this.name = name;
-    this.status = true;
+    this._id = id;
+    this._name = name;
+    this._status = true;
   }
 
   private validate({ id, name }: CustomerConstructor) {
@@ -32,46 +32,46 @@ export class Customer implements ICustomer {
     if (nameLength < 1 || nameLength > 100)
       throw new DomainException("the name should have a valid length");
 
-    this.name = name;
+    this._name = name;
   }
 
   activate() {
-    this.status = true;
+    this._status = true;
   }
 
   deactivate() {
-    this.status = false;
+    this._status = false;
   }
 
   changeAddress(address: AddressAttributes) {
-    this.address = address;
+    this._address = address;
   }
 
-  getId(): string {
-    return this.id;
+  get id(): string {
+    return this._id;
   }
 
-  getName(): string {
-    return this.name;
+  get name(): string {
+    return this._name;
   }
 
-  getAddress(): AddressAttributes {
-    if (!this.address) throw new NotFoundException("address not found");
-    return this.address;
+  get address(): AddressAttributes {
+    if (!this._address) throw new NotFoundException("address not found");
+    return this._address;
   }
 
-  getStatus(): boolean {
-    return this.status;
+  get status(): boolean {
+    return this._status;
   }
 
   increaseRewardPoints(value: number): number {
     if (value < 1) throw new DomainException("value should be positive");
 
-    this.rewardPoints += value;
-    return this.rewardPoints;
+    this._rewardPoints += value;
+    return this._rewardPoints;
   }
 
-  getRewardPoints(): number {
-    return this.rewardPoints;
+  get rewardPoints(): number {
+    return this._rewardPoints;
   }
 }

@@ -1,5 +1,5 @@
-import { initDatabase, closeDatabase, getInstance } from "..";
-import { DatabaseException } from "../../errors/database.error";
+import { initDatabase, closeDatabase, getInstance } from "../..";
+import { DatabaseException } from "../../../errors/database.error";
 
 describe("Sequelize Instance", () => {
   describe("initDatabase", () => {

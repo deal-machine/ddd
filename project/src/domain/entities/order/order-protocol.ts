@@ -1,12 +1,4 @@
 import { OrderItem } from "..";
-import { OrderItemAttributes } from "../order-item/order-item-protocol";
-
-export type OrderAttributes = {
-  id: string;
-  customerId: string;
-  items: OrderItemAttributes[];
-  total: number;
-};
 
 export type OrderConstructor = {
   id: string;
@@ -15,8 +7,8 @@ export type OrderConstructor = {
 };
 
 export interface IOrder {
-  getTotal: () => number;
-  getId(): string;
-  getCustomerId(): string;
-  getOrderItems(): OrderItem[];
+  get total(): number;
+  get id(): string;
+  // get customerId(): string;
+  // get orderItems(): OrderItem[];
 }

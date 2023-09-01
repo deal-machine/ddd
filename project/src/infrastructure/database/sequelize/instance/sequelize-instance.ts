@@ -9,7 +9,8 @@ export const initSequelize = async (
   sequelize = new Sequelize(connection);
 
   await sequelize.authenticate({ logging: false });
-  sequelize.addModels([`${__dirname}/models`]);
+
+  sequelize.addModels([`${getPreviousFolder()}/models`]);
   await sequelize.sync({ force: true });
 
   return sequelize;
@@ -28,4 +29,10 @@ export const getInstance = () => {
     throw new DatabaseException("Sequelize connection not exists.");
 
   return sequelize;
+};
+
+const getPreviousFolder = () => {
+  const folder = __dirname.split("/");
+  folder.pop();
+  return folder.join("/");
 };

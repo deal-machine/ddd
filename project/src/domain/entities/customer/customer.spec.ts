@@ -97,7 +97,7 @@ describe("Customer Entity", () => {
       const newName = "valid-name-test";
       customer.changeName(newName);
 
-      expect(customer.getName()).toBe(newName);
+      expect(customer.name).toBe(newName);
     });
   });
   describe("activate", () => {
@@ -107,9 +107,9 @@ describe("Customer Entity", () => {
         name: "name-test",
       });
       customer.deactivate();
-      expect(customer.getStatus()).toBeFalsy();
+      expect(customer.status).toBeFalsy();
       customer.activate();
-      expect(customer.getStatus()).toBeTruthy();
+      expect(customer.status).toBeTruthy();
     });
   });
   describe("deactivate", () => {
@@ -119,7 +119,7 @@ describe("Customer Entity", () => {
         name: "name-test",
       });
       customer.deactivate();
-      expect(customer.getStatus()).toBeFalsy();
+      expect(customer.status).toBeFalsy();
     });
   });
   describe("changeAddress", () => {
@@ -129,8 +129,8 @@ describe("Customer Entity", () => {
         name: "name-test",
       });
 
-      expect(() => customer.getAddress()).toThrowError(NotFoundException);
-      expect(() => customer.getAddress()).toThrowError("address not found");
+      expect(() => customer.address).toThrowError(NotFoundException);
+      expect(() => customer.address).toThrowError("address not found");
 
       const address = new Address({
         city: "city-test",
@@ -142,57 +142,8 @@ describe("Customer Entity", () => {
       expect(address).toBeTruthy();
 
       customer.changeAddress(address);
-      expect(customer.getAddress()).toBeTruthy();
-      expect(customer.getAddress()).toBe(address);
-    });
-  });
-  describe("getName", () => {
-    it("shoud return customer name", () => {
-      const customer = new Customer({
-        id: "id-test",
-        name: "name-test",
-      });
-      const name = customer.getName();
-      expect(name).toBeTruthy();
-      expect(name).toBe("name-test");
-    });
-  });
-  describe("getAddress", () => {
-    it("shoud throw NotFoundException when address not exists", () => {
-      const customer = new Customer({
-        id: "id-test",
-        name: "name-test",
-      });
-
-      expect(() => customer.getAddress()).toThrowError(NotFoundException);
-      expect(() => customer.getAddress()).toThrowError("address not found");
-    });
-    it("shoud return customer address", () => {
-      const customer = new Customer({
-        id: "id-test",
-        name: "name-test",
-      });
-      const address = new Address({
-        city: "city-test",
-        country: "country-test",
-        number: "number-test",
-        street: "street-test",
-        zipcode: "zipcode-test",
-      });
-      customer.changeAddress(address);
-
-      expect(customer.getAddress()).toBeTruthy();
-      expect(customer.getAddress()).toBe(address);
-    });
-  });
-  describe("getStatus", () => {
-    it("shoud return customer status", () => {
-      const customer = new Customer({
-        id: "id-test",
-        name: "name-test",
-      });
-      const status = customer.getStatus();
-      expect(status).toBeTruthy();
+      expect(customer.address).toBeTruthy();
+      expect(customer.address).toBe(address);
     });
   });
   describe("increaseRewardPoints", () => {
@@ -213,11 +164,11 @@ describe("Customer Entity", () => {
         id: "id-test",
         name: "name-test",
       });
-      expect(customer.getRewardPoints()).toBe(0);
+      expect(customer.rewardPoints).toBe(0);
       customer.increaseRewardPoints(100);
-      expect(customer.getRewardPoints()).toBe(100);
+      expect(customer.rewardPoints).toBe(100);
       customer.increaseRewardPoints(1);
-      expect(customer.getRewardPoints()).toBe(101);
+      expect(customer.rewardPoints).toBe(101);
     });
   });
   describe("getRewardPoints", () => {
@@ -226,7 +177,7 @@ describe("Customer Entity", () => {
         id: "id-test",
         name: "name-test",
       });
-      expect(customer.getRewardPoints()).toBe(0);
+      expect(customer.rewardPoints).toBe(0);
     });
   });
 });

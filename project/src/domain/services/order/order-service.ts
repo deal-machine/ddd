@@ -9,17 +9,17 @@ export class OrderService {
 
     const order = new Order({
       id: "order-id",
-      customerId: customer.getId(),
+      customerId: customer.id,
       items: orderItems,
     });
 
-    const rewardPoints = order.getTotal() / 2;
+    const rewardPoints = order.total / 2;
     customer.increaseRewardPoints(rewardPoints);
 
     return order;
   }
 
   static total({ orders }: TotalParams): number {
-    return orders.reduce((acc, order) => acc + order.getTotal(), 0);
+    return orders.reduce((acc, order) => acc + order.total, 0);
   }
 }

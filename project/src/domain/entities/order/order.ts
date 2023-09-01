@@ -3,18 +3,18 @@ import { OrderItem } from "../order-item/order-item";
 import { IOrder, OrderConstructor } from "./order-protocol";
 
 export class Order implements IOrder {
-  private id: string;
-  private customerId: string;
-  private items: OrderItem[];
-  private total: number;
+  private _id: string;
+  private _customerId: string;
+  private _items: OrderItem[];
+  private _total: number;
 
   constructor({ id, customerId, items }: OrderConstructor) {
     this.validate({ id, customerId, items });
 
-    this.id = id;
-    this.customerId = customerId;
-    this.items = items;
-    this.total = this.sumTotal();
+    this._id = id;
+    this._customerId = customerId;
+    this._items = items;
+    this._total = this.sumTotal();
   }
 
   private validate({ id, customerId, items }: OrderConstructor) {
@@ -28,22 +28,23 @@ export class Order implements IOrder {
   }
 
   private sumTotal(): number {
-    return this.items.reduce((acc, item) => acc + item.getPrice(), 0);
+    return this._items.reduce((acc, item) => acc + item.price, 0);
   }
 
-  getTotal(): number {
-    return this.total;
+  get total(): number {
+    return this._total;
   }
 
-  getId(): string {
-    return this.id;
+  get id(): string {
+    return this._id;
+  }
+  /*
+  get customerId(): string {
+    return this._customerId;
   }
 
-  getCustomerId(): string {
-    return this.customerId;
+  get orderItems(): OrderItem[] {
+    return this._items;
   }
-
-  getOrderItems(): OrderItem[] {
-    return this.items;
-  }
+  */
 }

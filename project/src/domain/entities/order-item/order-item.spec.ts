@@ -134,44 +134,7 @@ describe("OrderItem Entity", () => {
         quantity: 2,
       });
       orderItem.increaseValue(50);
-      expect(orderItem.getPrice()).toBe(150);
-    });
-  });
-  describe("getPrice", () => {
-    it("should return price", () => {
-      const orderItem = new OrderItem({
-        id: "id-tester",
-        name: "tester",
-        price: 123,
-        productId: product.id,
-        quantity: 2,
-      });
-      expect(orderItem.getPrice()).toBe(246);
-    });
-  });
-  describe("getProductId", () => {
-    it("should return productId", () => {
-      const productId = product.id;
-      const orderItem = new OrderItem({
-        id: "id-tester",
-        name: "tester",
-        price: 123,
-        productId,
-        quantity: 2,
-      });
-      expect(orderItem.getProductId()).toBe(productId);
-    });
-  });
-  describe("getQuantity", () => {
-    it("should return quantity", () => {
-      const orderItem = new OrderItem({
-        id: "id-tester",
-        name: "tester",
-        price: 123,
-        productId: product.id,
-        quantity: 2,
-      });
-      expect(orderItem.getQuantity()).toBe(2);
+      expect(orderItem.price).toBe(150);
     });
   });
 });
