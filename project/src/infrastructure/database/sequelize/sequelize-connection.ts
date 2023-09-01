@@ -11,7 +11,8 @@ const connTest: SequelizeOptions = {
   password: env.dbTestPassword,
   port: env.dbTestPort,
   sync: { force: true },
-  models: [`${__dirname}/models/*.ts`],
+  logging: false,
+  models: [`${__dirname}/models`],
 };
 
 const conn: SequelizeOptions = {
@@ -21,23 +22,21 @@ const conn: SequelizeOptions = {
   username: env.dbUser,
   password: env.dbPassword,
   port: env.dbPort,
+  sync: { force: true },
+  logging: false,
   models: [`${__dirname}/models`],
 };
 
-let sequelize: Sequelize;
+let sequelize: Sequelize | null;
 
 export const initSequelize = async (): Promise<Sequelize> => {
   const connection = env.isTest ? connTest : conn;
 
   sequelize = new Sequelize(connection);
-  try {
-    await sequelize.authenticate();
-    console.log(
-      `\n Connection has been established successfully with database: ${sequelize.config.database}. \n`
-    );
-  } catch (error: any) {
-    console.error(`\n Unable to connect to the database: ${error.message} \n`);
-  }
+
+  await sequelize.authenticate({ logging: false });
+  sequelize.addModels([`${__dirname}/models`]);
+  await sequelize.sync();
 
   return sequelize;
 };
@@ -45,5 +44,7 @@ export const initSequelize = async (): Promise<Sequelize> => {
 export const closeDatabase = async (): Promise<void> => {
   if (!sequelize)
     throw new DatabaseException("Sequelize connection not exists.");
+
   await sequelize.close();
+  sequelize = null;
 };

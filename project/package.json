@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "test": "cross-env NODE_ENV=test npm run tsc -- --noEmit && jest",
-    "test:coverage": "cross-env NODE_ENV=test npm run tsc -- --noEmit && jest --collectCoverage",
+    "test": "cross-env NODE_ENV=test npm run tsc -- --noEmit && jest --runInBand  --logHeapUsage",
+    "test:coverage": "cross-env NODE_ENV=test npm run tsc -- --noEmit && jest --collectCoverage --runInBand --logHeapUsage",
     "tsc": "tsc"
   },
   "keywords": [

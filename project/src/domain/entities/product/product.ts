@@ -2,20 +2,20 @@ import { AttributeException, DomainException } from "../../errors";
 import { IProduct, ProductConstructor } from "./product-protocol";
 
 export class Product implements IProduct {
-  private id: string;
-  private name: string;
-  private description: string;
-  private category: string;
-  private price: number;
+  private _id: string;
+  private _name: string;
+  private _description: string;
+  private _category: string;
+  private _price: number;
 
   constructor({ id, name, category, description, price }: ProductConstructor) {
     this.validate({ id, name, category, description, price });
 
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.category = category;
-    this.price = price;
+    this._id = id;
+    this._name = name;
+    this._description = description;
+    this._category = category;
+    this._price = price;
   }
 
   private validate({
@@ -34,27 +34,27 @@ export class Product implements IProduct {
 
   increaseValue(value: number): number {
     if (value < 1) throw new DomainException("value should be positive");
-    this.price += value;
-    return this.price;
+    this._price += value;
+    return this._price;
   }
 
-  getId(): string {
-    return this.id;
+  get id(): string {
+    return this._id;
   }
 
-  getName(): string {
-    return this.name;
+  get name(): string {
+    return this._name;
   }
 
-  getDescription(): string {
-    return this.description;
+  get description(): string {
+    return this._description;
   }
 
-  getCategory(): string {
-    return this.category;
+  get category(): string {
+    return this._category;
   }
 
-  getPrice(): number {
-    return this.price;
+  get price(): number {
+    return this._price;
   }
 }

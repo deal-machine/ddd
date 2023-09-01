@@ -18,12 +18,11 @@ describe("Product Service", () => {
         description: "description",
         price: 2,
       });
-
       const products = [productOne, productTwo];
       ProductService.increaseValue({ products, value: 10 });
 
-      expect(productOne.getPrice()).toBe(11);
-      expect(productTwo.getPrice()).toBe(12);
+      expect(productOne.price).toBe(11);
+      expect(productTwo.price).toBe(12);
     });
   });
 });

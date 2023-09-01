@@ -1,24 +1,23 @@
-export type ProductAttributes = {
+export interface ProductAttributes {
   id: string;
   name: string;
   description: string;
   category: string;
   price: number;
-};
+}
 
-export type ProductConstructor = {
+export interface ProductConstructor {
   id: string;
   name: string;
   description: string;
   category: string;
   price: number;
-};
+}
 
 export interface IProduct {
-  increaseValue(value: number): number;
-  getId(): string;
-  getName(): string;
-  getDescription(): string;
-  getCategory(): string;
-  getPrice(): number;
+  get id(): string;
+  get name(): string;
+  get description(): string;
+  get category(): string;
+  get price(): number;
 }

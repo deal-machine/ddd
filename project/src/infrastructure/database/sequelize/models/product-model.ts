@@ -1,10 +1,11 @@
 import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Product } from "../../../../domain/entities";
 
 @Table({
   tableName: "products",
   timestamps: false,
 })
-export default class ProductModel extends Model {
+export default class ProductModel extends Model<Product> {
   @Column({
     field: "id",
     type: DataType.STRING,
@@ -37,7 +38,7 @@ export default class ProductModel extends Model {
 
   @Column({
     field: "price",
-    type: DataType.DECIMAL(10, 2),
+    type: DataType.DECIMAL,
     allowNull: false,
   })
   declare price: number;

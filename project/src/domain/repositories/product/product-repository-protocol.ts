@@ -1,5 +1,6 @@
 import { Product } from "../../entities";
 import { RepositoryInterface } from "../repository-protocol";
 
-export default interface ProductRepository
-  extends RepositoryInterface<Product> {}
+export interface ProductRepository extends RepositoryInterface<Product> {
+  findAllByCategory(category: string): Promise<Product[]>;
+}

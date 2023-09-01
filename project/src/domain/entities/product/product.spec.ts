@@ -121,72 +121,7 @@ describe("Product Entity", () => {
         price: 5,
       });
       product.increaseValue(50);
-      expect(product.getPrice()).toBe(55);
-    });
-  });
-  describe("getId", () => {
-    it("should return product id", () => {
-      const product = new Product({
-        id: "id-product-test",
-        name: "name-product-test",
-        description: "description-product-test",
-        category: "category-product-test",
-        price: 5,
-      });
-      expect(product.getId()).toBeTruthy();
-      expect(product.getId()).toBe("id-product-test");
-    });
-  });
-  describe("getName", () => {
-    it("should return product name", () => {
-      const product = new Product({
-        id: "id-product-test",
-        name: "name-product-test",
-        description: "description-product-test",
-        category: "category-product-test",
-        price: 5,
-      });
-      expect(product.getName()).toBeTruthy();
-      expect(product.getName()).toBe("name-product-test");
-    });
-  });
-  describe("getDescription", () => {
-    it("should return product description", () => {
-      const product = new Product({
-        id: "id-product-test",
-        name: "name-product-test",
-        description: "description-product-test",
-        category: "category-product-test",
-        price: 5,
-      });
-      expect(product.getDescription()).toBeTruthy();
-      expect(product.getDescription()).toBe("description-product-test");
-    });
-  });
-  describe("getCategory", () => {
-    it("should return product category", () => {
-      const product = new Product({
-        id: "id-product-test",
-        name: "name-product-test",
-        description: "description-product-test",
-        category: "category-product-test",
-        price: 5,
-      });
-      expect(product.getCategory()).toBeTruthy();
-      expect(product.getCategory()).toBe("category-product-test");
-    });
-  });
-  describe("getPrice", () => {
-    it("should return price category", () => {
-      const product = new Product({
-        id: "id-product-test",
-        name: "name-product-test",
-        description: "description-product-test",
-        category: "category-product-test",
-        price: 5,
-      });
-      expect(product.getPrice()).toBeTruthy();
-      expect(product.getPrice()).toBe(5);
+      expect(product.price).toBe(55);
     });
   });
 });

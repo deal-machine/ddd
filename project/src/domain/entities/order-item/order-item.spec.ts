@@ -21,7 +21,7 @@ describe("OrderItem Entity", () => {
           id: "",
           name: "Tester",
           price: 50,
-          productId: product.getId(),
+          productId: product.id,
           quantity: 2,
         });
       } catch (error: any) {
@@ -37,7 +37,7 @@ describe("OrderItem Entity", () => {
           id: "id-testing",
           name: "",
           price: 5,
-          productId: product.getId(),
+          productId: product.id,
           quantity: 2,
         });
       } catch (error: any) {
@@ -53,7 +53,7 @@ describe("OrderItem Entity", () => {
           id: "id-testing",
           name: "name-testing",
           price: 0,
-          productId: product.getId(),
+          productId: product.id,
           quantity: 2,
         });
       } catch (error: any) {
@@ -102,7 +102,7 @@ describe("OrderItem Entity", () => {
         id: "id-test",
         name: "name-test",
         price: 11,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 2,
       });
       expect(orderItem).toBeTruthy();
@@ -117,7 +117,7 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 50,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 2,
       });
       expect(() => orderItem.increaseValue(-1)).toThrowError(DomainException);
@@ -130,7 +130,7 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 50,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 2,
       });
       orderItem.increaseValue(50);
@@ -143,7 +143,7 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 123,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 2,
       });
       expect(orderItem.getPrice()).toBe(246);
@@ -151,7 +151,7 @@ describe("OrderItem Entity", () => {
   });
   describe("getProductId", () => {
     it("should return productId", () => {
-      const productId = product.getId();
+      const productId = product.id;
       const orderItem = new OrderItem({
         id: "id-tester",
         name: "tester",
@@ -168,7 +168,7 @@ describe("OrderItem Entity", () => {
         id: "id-tester",
         name: "tester",
         price: 123,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 2,
       });
       expect(orderItem.getQuantity()).toBe(2);

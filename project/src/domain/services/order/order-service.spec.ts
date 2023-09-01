@@ -64,21 +64,21 @@ describe("Order Service", () => {
         id: "1234",
         name: "Item example one",
         price: 12,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 2,
       });
       const orderItemTwo = new OrderItem({
         id: "122",
         name: "second item example",
         price: 1,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 6,
       });
       const orderItemThree = new OrderItem({
         id: "122",
         name: "second item example",
         price: 100,
-        productId: product.getId(),
+        productId: product.id,
         quantity: 6,
       });
       const order = new Order({
