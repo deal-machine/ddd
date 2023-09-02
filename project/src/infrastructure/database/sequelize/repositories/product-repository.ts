@@ -1,6 +1,6 @@
 import { Product } from "../../../../domain/entities";
 import { ProductRepository } from "../../../../domain/repositories/product/product-repository-protocol";
-import ProductModel from "../models/product-model";
+import { ProductModel } from "../models";
 
 export class SequelizeProductRepository implements ProductRepository {
   private readonly model;

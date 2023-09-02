@@ -5,7 +5,7 @@ import { Product } from "../../../../domain/entities";
   tableName: "products",
   timestamps: false,
 })
-export default class ProductModel extends Model<Product> {
+export class ProductModel extends Model<Product> {
   @Column({
     field: "id",
     type: DataType.STRING,
@@ -38,7 +38,7 @@ export default class ProductModel extends Model<Product> {
 
   @Column({
     field: "price",
-    type: DataType.DECIMAL,
+    type: DataType.DECIMAL(10, 2),
     allowNull: false,
   })
   declare price: number;

@@ -1,5 +1,6 @@
 import { Sequelize, SequelizeOptions } from "sequelize-typescript";
 import { DatabaseException } from "../../../errors/database.error";
+import { sequelizeModels } from "../models";
 
 let sequelize: Sequelize | null;
 
@@ -10,7 +11,7 @@ export const initSequelize = async (
 
   await sequelize.authenticate({ logging: false });
 
-  sequelize.addModels([`${getPreviousFolder()}/models`]);
+  sequelize.addModels(sequelizeModels);
   await sequelize.sync({ force: true });
 
   return sequelize;
@@ -29,10 +30,4 @@ export const getInstance = () => {
     throw new DatabaseException("Sequelize connection not exists.");
 
   return sequelize;
-};
-
-const getPreviousFolder = () => {
-  const folder = __dirname.split("/");
-  folder.pop();
-  return folder.join("/");
 };

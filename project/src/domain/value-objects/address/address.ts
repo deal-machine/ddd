@@ -2,20 +2,20 @@ import { AttributeException } from "../../errors";
 import { AddressConstructor, IAddress } from "./address-protocol";
 
 export class Address implements IAddress {
-  readonly zipcode: string;
-  readonly number: number | string;
-  readonly street: string;
-  readonly country: string;
-  readonly city: string;
+  readonly _street: string;
+  readonly _number: string;
+  readonly _city: string;
+  readonly _zipcode: string;
+  readonly _country: string;
 
   constructor(address: AddressConstructor) {
     this.validate(address);
 
-    this.zipcode = address.zipcode;
-    this.number = address.number;
-    this.street = address.street;
-    this.country = address.country;
-    this.city = address.city;
+    this._zipcode = address.zipcode;
+    this._number = address.number;
+    this._street = address.street;
+    this._country = address.country;
+    this._city = address.city;
   }
 
   private validate(address: AddressConstructor): void {
@@ -30,7 +30,23 @@ export class Address implements IAddress {
     if (!address.city) throw new AttributeException("city is required");
   }
 
-  toString(): string {
-    return `${this.street}, ${this.number} ${this.city} - ${this.country}`;
+  get street(): string {
+    return this._street;
+  }
+
+  get number(): string {
+    return this._number;
+  }
+
+  get city(): string {
+    return this._city;
+  }
+
+  get country(): string {
+    return this._country;
+  }
+
+  get zipcode(): string {
+    return this._zipcode;
   }
 }

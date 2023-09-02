@@ -99,21 +99,4 @@ describe("Address ValueObject", () => {
       expect(address).toHaveProperty("zipcode");
     });
   });
-
-  describe("toString", () => {
-    it("should return address in string format", () => {
-      const address = new Address({
-        city: "city-test",
-        country: "country-test",
-        number: "number-test",
-        street: "street-test",
-        zipcode: "zipcode-test",
-      });
-      expect(address).toBeTruthy();
-      const addressString = address.toString();
-      expect(addressString).toBe(
-        "street-test, number-test city-test - country-test"
-      );
-    });
-  });
 });

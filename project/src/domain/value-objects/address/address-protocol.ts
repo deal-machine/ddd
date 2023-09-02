@@ -1,6 +1,6 @@
 export type AddressAttributes = {
   zipcode: string;
-  number: number | string;
+  number: string;
   street: string;
   country: string;
   city: string;
@@ -8,12 +8,16 @@ export type AddressAttributes = {
 
 export type AddressConstructor = {
   zipcode: string;
-  number: number | string;
+  number: string;
   street: string;
   country: string;
   city: string;
 };
 
 export interface IAddress {
-  toString: () => string;
+  get street(): string;
+  get number(): string;
+  get city(): string;
+  get country(): string;
+  get zipcode(): string;
 }

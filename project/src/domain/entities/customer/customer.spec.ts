@@ -48,7 +48,7 @@ describe("Customer Entity", () => {
       const address = new Address({
         city: "city",
         country: "country",
-        number: 1,
+        number: "1",
         street: "street",
         zipcode: "zipcode",
       });
@@ -56,6 +56,19 @@ describe("Customer Entity", () => {
       customer.changeAddress(address);
 
       expect(customer).toHaveProperty("address");
+      expect(customer.status).toBeTruthy();
+    });
+    it("should create new Customer with status true", () => {
+      const customer = new Customer({
+        id: "id-test",
+        name: "name-test",
+      });
+
+      expect(customer).toBeTruthy();
+      expect(customer).toHaveProperty("id");
+      expect(customer).toHaveProperty("name");
+      expect(customer).toHaveProperty("status");
+      expect(customer.status).toBeTruthy();
     });
   });
   describe("changeName", () => {
@@ -129,9 +142,6 @@ describe("Customer Entity", () => {
         name: "name-test",
       });
 
-      expect(() => customer.address).toThrowError(NotFoundException);
-      expect(() => customer.address).toThrowError("address not found");
-
       const address = new Address({
         city: "city-test",
         country: "country-test",
@@ -144,6 +154,15 @@ describe("Customer Entity", () => {
       customer.changeAddress(address);
       expect(customer.address).toBeTruthy();
       expect(customer.address).toBe(address);
+    });
+    it("should throws when try to get address", () => {
+      const customer = new Customer({
+        id: "id-test",
+        name: "name-test",
+      });
+
+      expect(() => customer.address).toThrowError(NotFoundException);
+      expect(() => customer.address).toThrowError("address not found");
     });
   });
   describe("increaseRewardPoints", () => {

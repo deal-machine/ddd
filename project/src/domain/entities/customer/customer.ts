@@ -3,13 +3,13 @@ import {
   DomainException,
   NotFoundException,
 } from "../../errors/index";
-import { AddressAttributes } from "../../value-objects/address/address-protocol";
+import { Address } from "../../value-objects";
 import { CustomerConstructor, ICustomer } from "./customer-protocol";
 
 export class Customer implements ICustomer {
   private _id: string;
   private _name: string;
-  private _address!: AddressAttributes;
+  private _address!: Address;
   private _status: boolean;
   private _rewardPoints: number = 0;
 
@@ -43,7 +43,7 @@ export class Customer implements ICustomer {
     this._status = false;
   }
 
-  changeAddress(address: AddressAttributes) {
+  changeAddress(address: Address) {
     this._address = address;
   }
 
@@ -55,7 +55,7 @@ export class Customer implements ICustomer {
     return this._name;
   }
 
-  get address(): AddressAttributes {
+  get address(): Address {
     if (!this._address) throw new NotFoundException("address not found");
     return this._address;
   }

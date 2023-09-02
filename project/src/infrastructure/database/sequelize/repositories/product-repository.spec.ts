@@ -184,7 +184,7 @@ describe("Sequelize Product Repository", () => {
   });
 
   describe("update", () => {
-    it("should update a project by id", async () => {
+    it("should update a product by id", async () => {
       const productEntity = new Product({
         id: "1",
         category: "category",
