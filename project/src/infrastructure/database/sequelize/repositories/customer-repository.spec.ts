@@ -1,4 +1,4 @@
-import { closeDatabase, initDatabase } from "../..";
+import { closeDatabase, initDatabase } from "..";
 import { Customer } from "../../../../domain/entities";
 import { CustomerRepository } from "../../../../domain/repositories/customer/customer-repository-protocol";
 import { Address } from "../../../../domain/value-objects";

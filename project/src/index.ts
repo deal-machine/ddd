@@ -1,4 +1,4 @@
-import { initDatabase } from "./infrastructure/database";
+import { initDatabase } from "./infrastructure/database/sequelize";
 
 (async () => {
   const seq = await initDatabase();

@@ -1,4 +1,4 @@
-import { closeDatabase, initDatabase } from "../..";
+import { closeDatabase, initDatabase } from "..";
 import { Product } from "../../../../domain/entities";
 import { ProductRepository } from "../../../../domain/repositories/product/product-repository-protocol";
 import { SequelizeProductRepository } from "./product-repository";
