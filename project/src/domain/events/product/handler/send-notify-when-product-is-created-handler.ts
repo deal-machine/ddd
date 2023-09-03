@@ -1,12 +1,16 @@
 import { EventHandlerInterface } from "../../event-handler-protocol";
 import { ProductCreatedEvent } from "../product-created-event";
 
-export class SendEmailWhenProductIsCreatedHandler
+export class SendNotifyWhenProductIsCreatedHandler
   implements EventHandlerInterface<ProductCreatedEvent>
 {
   handle(event: ProductCreatedEvent): void {
-    if (event.eventData.email) {
-      console.log("... Sending email to: ", event.eventData.email, "\n");
+    if (event.eventData.cellphone) {
+      console.log(
+        "... Sending notification to: ",
+        event.eventData.cellphone,
+        "\n"
+      );
     }
   }
 }

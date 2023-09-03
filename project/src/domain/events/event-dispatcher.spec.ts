@@ -1,5 +1,6 @@
 import { EventDispatcher } from "./event-dispatcher";
 import { SendEmailWhenProductIsCreatedHandler } from "./product/handler/send-mail-when-product-is-created-handler";
+import { SendNotifyWhenProductIsCreatedHandler } from "./product/handler/send-notify-when-product-is-created-handler";
 import { ProductCreatedEvent } from "./product/product-created-event";
 
 describe("Domain Event Dispatcher", () => {
@@ -96,15 +97,26 @@ describe("Domain Event Dispatcher", () => {
 
       const eventHandler = new SendEmailWhenProductIsCreatedHandler();
       const handlerSpy = jest.spyOn(eventHandler, "handle");
+      const notifyHandler = new SendNotifyWhenProductIsCreatedHandler();
+      const notifyHandlerSpy = jest.spyOn(notifyHandler, "handle");
+
       dispatcher.register("ProductCreatedEvent", eventHandler);
+      dispatcher.register("ProductCreatedEvent", notifyHandler);
 
       const productCreatedEvent = new ProductCreatedEvent({
         email: "deal-machine",
       });
+      const productCreatedEvent2 = new ProductCreatedEvent({
+        cellphone: "15998998998",
+      });
       dispatcher.notify(productCreatedEvent);
+
+      dispatcher.notify(productCreatedEvent2);
 
       expect(handlerSpy).toHaveBeenCalled();
       expect(handlerSpy).toHaveBeenCalledWith(productCreatedEvent);
+      expect(notifyHandlerSpy).toHaveBeenCalled();
+      expect(notifyHandlerSpy).toHaveBeenCalledWith(productCreatedEvent2);
     });
   });
 });

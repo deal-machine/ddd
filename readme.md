@@ -211,7 +211,43 @@ Contextos:
 
 <br>
 
----
+### _Domain Events_ - Eventos de Domínio
+
+> "Use um evento de domínio para capturar uma ocorrência de algo que aconteceu no domínio".
+
+> "A essência de um evento de domínio é que você o usa para capturar coisas que podem desencadear uma mudança no estado do aplicativo que você está desenvolvendo. Esses objetos de evento são processados para causar alterações no sistema e armazenados para fornecer um _AuditLog_".
+
+- normalmente é usado quando precisamos notificar outros _BoundedContext_ uma mudança de estado;
+- quando algo aconteceu;
+- todo evento deve ser representado por uma ação realizada no passado:
+  - _action_-> _event_
+    - _create user_ -> _user created_
+    - _send email_ -> _email sent_
+
+#### _Components_
+
+- _Event_: dados do evento, data do evento, etc
+  - o que acontece (informações do evento)
+- _Handler_: executa um processamento quando um evento é chamado
+  - quando o evento acontece (ação do evento)
+- _Dispatcher_: armazena e executa os _handles_ para o evento
+  - escuta o evento e emite as ações
+
+```
+                eventDispatcher: {
+                    event: [
+                        handler1(),
+                        handler2(),
+                        handler3()...
+                    ],
+                    userCreated: [
+                        sendMail(),
+                        notifyOtherBoundedContext(),
+                    ]
+                }
+```
+
+## <br>
 
 <br><br><br>
 
