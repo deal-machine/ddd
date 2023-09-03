@@ -106,9 +106,12 @@ describe("OrderItem Entity", () => {
         quantity: 2,
       });
       expect(orderItem).toBeTruthy();
-      expect(orderItem).toHaveProperty("id");
-      expect(orderItem).toHaveProperty("name");
-      expect(orderItem).toHaveProperty("price");
+      expect(orderItem.id).toBe("id-test");
+      expect(orderItem.name).toBe("name-test");
+      expect(orderItem.price).toBe(11);
+      expect(orderItem.productId).toBe(product.id);
+      expect(orderItem.quantity).toBe(2);
+      expect(orderItem.total()).toBe(22);
     });
   });
   describe("increaseValue", () => {
@@ -125,7 +128,7 @@ describe("OrderItem Entity", () => {
         "value should be positive"
       );
     });
-    it("should return price added value", () => {
+    it("should return total added value", () => {
       const orderItem = new OrderItem({
         id: "id-tester",
         name: "tester",
@@ -133,8 +136,9 @@ describe("OrderItem Entity", () => {
         productId: product.id,
         quantity: 2,
       });
+      expect(orderItem.total()).toBe(100);
       orderItem.increaseValue(50);
-      expect(orderItem.price).toBe(150);
+      expect(orderItem.total()).toBe(200);
     });
   });
 });

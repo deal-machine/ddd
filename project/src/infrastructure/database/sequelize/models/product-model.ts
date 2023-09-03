@@ -1,11 +1,18 @@
 import { Column, DataType, Model, Table } from "sequelize-typescript";
-import { Product } from "../../../../domain/entities";
+
+interface IProductModel {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  price: number;
+}
 
 @Table({
   tableName: "products",
   timestamps: false,
 })
-export class ProductModel extends Model<Product> {
+class ProductModel extends Model implements IProductModel {
   @Column({
     field: "id",
     type: DataType.STRING,
@@ -43,3 +50,5 @@ export class ProductModel extends Model<Product> {
   })
   declare price: number;
 }
+
+export { ProductModel };

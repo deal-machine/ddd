@@ -71,7 +71,7 @@ export class SequelizeCustomerRepository implements CustomerRepository {
       number: entity.address.number,
       street: entity.address.street,
       zipcode: entity.address.zipcode,
-    } as unknown as Customer);
+    });
   }
 
   async delete(id: string): Promise<void> {

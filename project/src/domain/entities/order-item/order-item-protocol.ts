@@ -10,6 +10,7 @@ export interface IOrderItem {
   get id(): string;
   get name(): string;
   get price(): number;
-  // get productId(): string;
-  // get quantity(): number;
+  get productId(): string;
+  get quantity(): number;
+  total(): number;
 }

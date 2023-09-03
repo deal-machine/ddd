@@ -1,11 +1,21 @@
 import { Column, DataType, Model, Table } from "sequelize-typescript";
-import { Customer } from "../../../../domain/entities";
 
+interface ICustomerModel {
+  id: string;
+  name: string;
+  status: boolean;
+  rewardPoints: number;
+  zipcode: string;
+  number: string;
+  street: string;
+  city: string;
+  country: string;
+}
 @Table({
   tableName: "customers",
   timestamps: false,
 })
-export class CustomerModel extends Model<Customer> {
+class CustomerModel extends Model implements ICustomerModel {
   @Column({
     field: "id",
     primaryKey: true,
@@ -37,7 +47,6 @@ export class CustomerModel extends Model<Customer> {
   })
   declare rewardPoints: number;
 
-  // *********** ADDRESS
   @Column({
     field: "zipcode",
     type: DataType.STRING,
@@ -73,3 +82,5 @@ export class CustomerModel extends Model<Customer> {
   })
   declare city: string;
 }
+
+export { CustomerModel };

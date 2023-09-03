@@ -6,6 +6,8 @@
 
 ### To setup databases
 
+###### There is a connection example in .env.example
+
 `docker compose up`
 
 ### To run project

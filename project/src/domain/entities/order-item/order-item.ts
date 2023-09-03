@@ -13,7 +13,7 @@ export class OrderItem implements IOrderItem {
 
     this._id = id;
     this._name = name;
-    this._price = price * quantity;
+    this._price = price;
     this._productId = productId;
     this._quantity = quantity;
   }
@@ -57,7 +57,6 @@ export class OrderItem implements IOrderItem {
     return this._price;
   }
 
-  /*
   get productId(): string {
     return this._productId;
   }
@@ -65,5 +64,8 @@ export class OrderItem implements IOrderItem {
   get quantity(): number {
     return this._quantity;
   }
-  */
+
+  total(): number {
+    return this.price * this._quantity;
+  }
 }

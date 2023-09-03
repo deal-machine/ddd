@@ -80,7 +80,10 @@ describe("Order Entity", () => {
         items: [orderItem, orderItemTwo],
       });
       expect(order).toBeTruthy();
-      expect(order).toHaveProperty("id");
+      expect(order.id).toBe("id");
+      expect(order.items).toStrictEqual([orderItem, orderItemTwo]);
+      expect(order.total).toBe(66);
+      expect(order.customerId).toBe(customer.id);
     });
   });
 });

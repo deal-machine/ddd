@@ -28,7 +28,7 @@ export class Order implements IOrder {
   }
 
   private sumTotal(): number {
-    return this._items.reduce((acc, item) => acc + item.price, 0);
+    return this._items.reduce((acc, item) => acc + item.total(), 0);
   }
 
   get total(): number {
@@ -38,13 +38,12 @@ export class Order implements IOrder {
   get id(): string {
     return this._id;
   }
-  /*
+
   get customerId(): string {
     return this._customerId;
   }
 
-  get orderItems(): OrderItem[] {
+  get items(): OrderItem[] {
     return this._items;
   }
-  */
 }

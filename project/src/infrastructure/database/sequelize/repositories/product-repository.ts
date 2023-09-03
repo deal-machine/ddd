@@ -66,7 +66,7 @@ export class SequelizeProductRepository implements ProductRepository {
       description: entity.description,
       category: entity.category,
       price: entity.price,
-    } as Product);
+    });
   }
 
   async update(

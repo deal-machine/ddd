@@ -9,6 +9,6 @@ export type OrderConstructor = {
 export interface IOrder {
   get total(): number;
   get id(): string;
-  // get customerId(): string;
-  // get orderItems(): OrderItem[];
+  get customerId(): string;
+  get items(): OrderItem[];
 }
