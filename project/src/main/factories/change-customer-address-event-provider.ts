@@ -1,8 +1,8 @@
-import { EventProvider } from "../../@shared/events/";
-import { Customer } from "../../domain/entities";
-import { CustomerAddressChangedEvent } from "../../domain/events/customer/customer-address-changed-event";
-import { customerDispatcher } from "../../domain/events/customer/customer-dispatcher";
-import { SendLogHandler } from "../../domain/events/customer/handlers/send-log-handler";
+import { EventProvider } from "../../@shared/events";
+import { Customer } from "../../domain/customer/entities/customer";
+import { CustomerAddressChangedEvent } from "../../domain/customer/events/changeAddress/customer-address-changed-event";
+import { SendLogHandler } from "../../domain/customer/events/changeAddress/handlers/send-log-handler";
+import { customerDispatcher } from "../../domain/customer/events/customer-dispatcher";
 
 export class ChangeAddressCustomerEventProvider
   implements EventProvider<Customer>

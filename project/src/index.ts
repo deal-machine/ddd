@@ -1,8 +1,8 @@
-import { CreateCustomerEventProvider } from "./main/factories/create-customer-event-provider";
+import { ChangeCustomerAddressService } from "./domain/customer/services/changeAddress/change-customer-address-service";
+import { CreateCustomerService } from "./domain/customer/services/create/create-customer-service";
+import { Uuid } from "./infrastructure/@shared/adapters/uuid/uuid";
 import { ChangeAddressCustomerEventProvider } from "./main/factories/change-customer-address-event-provider";
-import { CreateCustomerService } from "./domain/services/customer/create/create-customer-service";
-import { ChangeCustomerAddressService } from "./domain/services/customer/changeAddress/change-customer-address-service";
-import { Uuid } from "./infrastructure/uuid/uuid";
+import { CreateCustomerEventProvider } from "./main/factories/create-customer-event-provider";
 
 const uuid = new Uuid();
 const createEvent = new CreateCustomerEventProvider();
