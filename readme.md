@@ -247,7 +247,33 @@ Contextos:
                 }
 ```
 
-## <br>
+<br>
+
+### _Modules_ - Módulos
+
+> Em um contexto DDD, módulos servem como contêineres nomeados para classes de objetos de domínio que são altamente coesas entre si. O objetivo deve ser baixo acoplamento entre as classes que estão em modulos diferentes. Como os módulos usados no DDD não são compartimentos de armazenamento anêmicos ou genéricos, também é importante nomear adequadamente os Módulos.
+
+- respeita a linguagem universal - ubíqua;
+- baixo acoplamento;
+- agregados devem estar juntos se fazem sentido;
+- organizado pelo domínio/subdomínio e não por tipo de objeto;
+- começa no _bounded context_
+- outras camadas deve respeitar a modularização de domínio
+
+<br>
+
+### _Factories_ - Fábricas
+
+> Desloque a responsabilidade de criar instâncias de objetos complexos e agregados para um objeto separado , que pode não ter responsabilidade no modelo de domínio, mas ainda faz parte do design de domínio.
+> Forneça interface que encapsule toda a criação complexa e que não exija que o cliente faça referência às classes concretas dos objetos que estão sendo instanciados.
+> Crie agregadores inteiros de uma única vez, reforçando suas invariantes.
+
+- _factory method_
+  - um método que faz uma chamada e cria objetos que possuem interface em comum
+- _abstract factory_
+  - ajuda a tomar decisão para criar famílias de objetos
+
+<br>
 
 <br><br><br>
 
