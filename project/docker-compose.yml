@@ -15,19 +15,19 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGDATA: /data/pg_data
 
-  db-test:
-    container_name: postgres-db-test
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_DB: ${POSTGRES_DATABASE_TEST}
-      POSTGRES_USER: ${POSTGRES_USERNAME_TEST}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_TEST}
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
-    ports:
-      - 5433:5432
+  # db-test:
+  #   container_name: postgres-db-test
+  #   image: postgres:latest
+  #   restart: always
+  #   environment:
+  #     POSTGRES_DB: ${POSTGRES_DATABASE_TEST}
+  #     POSTGRES_USER: ${POSTGRES_USERNAME_TEST}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_TEST}
+  #     PGDATA: /data/postgres
+  #   volumes:
+  #     - postgres:/data/postgres
+  #   ports:
+  #     - 5433:5432
 
 volumes:
   pg_data:

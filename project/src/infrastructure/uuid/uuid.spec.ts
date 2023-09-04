@@ -1,4 +1,4 @@
-import { IdentifierGeneratorAdapter } from "../../application/protocols";
+import { IdentifierGeneratorAdapter } from "../../@shared/adapters";
 import { Uuid } from "./uuid";
 
 let adapter: IdentifierGeneratorAdapter;

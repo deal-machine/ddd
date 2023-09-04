@@ -1,3 +1,3 @@
-import { EventDispatcher } from "../event-dispatcher";
+import { EventDispatcher } from "../../../@shared/events";
 
 export const productDispatcher = new EventDispatcher();

@@ -150,8 +150,8 @@ describe("Sequelize Order Repository", () => {
       expect(ordersModel[0].total).toBe(330);
       expect(ordersModel[0].customerId).toBe(customerEntity.id);
       expect(ordersModel[0].items.length).toBe(2);
-      expect(ordersModel[0].items[0]).toStrictEqual(orderItem2);
-      expect(ordersModel[0].items[1]).toStrictEqual(orderItem);
+      expect(ordersModel[0].items[0]).toStrictEqual(orderItem);
+      expect(ordersModel[0].items[1]).toStrictEqual(orderItem2);
     });
   });
 

@@ -1,14 +1,13 @@
-import { Customer } from "../../../entities";
-import { CustomerAddressChangedEvent } from "../../../events/customer/customer-address-changed-event";
-import { CustomerCreatedEvent } from "../../../events/customer/customer-created-event";
-import { customerDispatcher } from "../../../events/customer/customer-dispatcher";
-import { SendLogHandler } from "../../../events/customer/handlers/send-log-handler";
-import { EventProvider } from "../create/create-customer-event-provider";
+import { EventProvider } from "../../@shared/events/";
+import { Customer } from "../../domain/entities";
+import { CustomerAddressChangedEvent } from "../../domain/events/customer/customer-address-changed-event";
+import { customerDispatcher } from "../../domain/events/customer/customer-dispatcher";
+import { SendLogHandler } from "../../domain/events/customer/handlers/send-log-handler";
 
 export class ChangeAddressCustomerEventProvider
   implements EventProvider<Customer>
 {
-  register(value: Customer): void {
+  dispatch(value: Customer): void {
     //crio o handler
     const handler = new SendLogHandler();
     //registro o evento

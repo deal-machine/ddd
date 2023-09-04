@@ -1,4 +1,4 @@
-import { EventHandlerInterface } from "../../event-handler-protocol";
+import { EventHandlerInterface } from "../../../../@shared/events";
 import { ProductCreatedEvent } from "../product-created-event";
 
 export class SendNotifyWhenProductIsCreatedHandler

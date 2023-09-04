@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { IdentifierGeneratorAdapter } from "../../application/protocols";
+import { IdentifierGeneratorAdapter } from "../../@shared/adapters";
 
 export class Uuid implements IdentifierGeneratorAdapter {
   generate(): string {

@@ -1,4 +1,4 @@
-import { EventInterface } from "../";
+import { EventInterface } from "../../../@shared/events";
 
 export class CustomerAddressChangedEvent implements EventInterface {
   dateTimeOcurred: Date;

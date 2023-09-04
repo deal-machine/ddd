@@ -1,15 +1,24 @@
-import { env } from "../../main/configs/env";
+import { env } from "../../@shared/configs/env";
 
 const connTest = {
-  dialect: env.dbTestDialect,
-  host: env.dbTestHost,
-  database: env.dbTestName,
-  username: env.dbTestUser,
-  password: env.dbTestPassword,
-  port: env.dbTestPort,
+  dialect: "sqlite",
+  storage: ":memory:",
   logging: false,
-  models: [`${__dirname}/models`],
+  sync: { force: true },
 };
+
+/*
+// const connTest = {
+//   dialect: env.dbTestDialect,
+//   host: env.dbTestHost,
+//   database: env.dbTestName,
+//   username: env.dbTestUser,
+//   password: env.dbTestPassword,
+//   port: env.dbTestPort,
+//   logging: false,
+//   models: [`${__dirname}/models`],
+// };
+*/
 
 const conn = {
   dialect: env.dbDialect,

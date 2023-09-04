@@ -1,4 +1,4 @@
-import { EventHandlerInterface } from "../../event-handler-protocol";
+import { EventHandlerInterface } from "../../../../@shared/events";
 import { CustomerCreatedEvent } from "../customer-created-event";
 
 export class SendLogHandler

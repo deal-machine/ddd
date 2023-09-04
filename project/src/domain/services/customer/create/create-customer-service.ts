@@ -1,6 +1,6 @@
-import { IdentifierGeneratorAdapter } from "../../../../application/protocols";
+import { IdentifierGeneratorAdapter } from "../../../../@shared/adapters";
+import { EventProvider } from "../../../../@shared/events/";
 import { Customer } from "../../../entities";
-import { EventProvider } from "./create-customer-event-provider";
 
 interface CreateCustomerServiceConstructor {
   event: EventProvider<Customer>;
@@ -22,7 +22,7 @@ export class CreateCustomerService {
       name,
     });
 
-    this.event.register(customer);
+    this.event.dispatch(customer);
 
     return customer;
   }

@@ -1,15 +1,7 @@
-/* import { initDatabase } from "./infrastructure/database/sequelize";
-
-(async () => {
-  const seq = await initDatabase();
-  console.log(`\nConnected on ${seq.getDatabaseName()}\n`);
-})();
-*/
-
-import { ChangeAddressCustomerEventProvider } from "./domain/services/customer/changeAddress/change-customer-address-event-provider";
-import { ChangeCustomerAddressService } from "./domain/services/customer/changeAddress/change-customer-address-service";
-import { CreateCustomerEventProvider } from "./domain/services/customer/create/create-customer-event-provider";
+import { CreateCustomerEventProvider } from "./main/factories/create-customer-event-provider";
+import { ChangeAddressCustomerEventProvider } from "./main/factories/change-customer-address-event-provider";
 import { CreateCustomerService } from "./domain/services/customer/create/create-customer-service";
+import { ChangeCustomerAddressService } from "./domain/services/customer/changeAddress/change-customer-address-service";
 import { Uuid } from "./infrastructure/uuid/uuid";
 
 const uuid = new Uuid();

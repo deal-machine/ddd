@@ -1,14 +1,11 @@
-import { Customer } from "../../../entities";
-import { CustomerCreatedEvent } from "../../../events/customer/customer-created-event";
-import { customerDispatcher } from "../../../events/customer/customer-dispatcher";
-import { SendLogHandler } from "../../../events/customer/handlers/send-log-handler";
-
-export interface EventProvider<T> {
-  register(value: T): void;
-}
+import { EventProvider } from "../../@shared/events/";
+import { Customer } from "../../domain/entities";
+import { CustomerCreatedEvent } from "../../domain/events/customer/customer-created-event";
+import { customerDispatcher } from "../../domain/events/customer/customer-dispatcher";
+import { SendLogHandler } from "../../domain/events/customer/handlers/send-log-handler";
 
 export class CreateCustomerEventProvider implements EventProvider<Customer> {
-  register(value: Customer): void {
+  dispatch(value: Customer): void {
     //crio o handler
     const handler = new SendLogHandler();
     //registro o evento
