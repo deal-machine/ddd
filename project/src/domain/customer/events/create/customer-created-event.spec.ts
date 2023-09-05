@@ -1,6 +1,7 @@
 import { customerDispatcher } from "../customer-dispatcher";
 import { CustomerCreatedEvent } from "./customer-created-event";
 import { SendLogHandler } from "./handlers/send-log-handler";
+import { SendLogHandler2 } from "./handlers/send-log2-handler";
 
 describe("Customer Created Event", () => {
   beforeEach(() => {
@@ -137,19 +138,15 @@ describe("Customer Created Event", () => {
   describe("notify", () => {
     it("should notify ", () => {
       const eventLogHandler = new SendLogHandler();
-      const eventLogHandler2 = new SendLogHandler();
+      const eventLogHandler2 = new SendLogHandler2();
 
       const handlerSpy = jest.spyOn(eventLogHandler, "handle");
 
       customerDispatcher.register("CustomerCreatedEvent", eventLogHandler);
       customerDispatcher.register("CustomerCreatedEvent", eventLogHandler2);
 
-      const customerCreatedEvent = new CustomerCreatedEvent({
-        message: "Esse é o primeiro console.log do evento: CustomerCreated",
-      });
-      const customerCreatedEvent2 = new CustomerCreatedEvent({
-        message: "Esse é o segundo console.log do evento: CustomerCreated",
-      });
+      const customerCreatedEvent = new CustomerCreatedEvent("CustomerCreated");
+      const customerCreatedEvent2 = new CustomerCreatedEvent("CustomerCreated");
 
       customerDispatcher.notify(customerCreatedEvent);
       customerDispatcher.notify(customerCreatedEvent2);

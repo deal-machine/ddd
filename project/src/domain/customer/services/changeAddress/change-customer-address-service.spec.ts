@@ -3,6 +3,7 @@ import { DomainException } from "../../../../@shared/errors";
 import { ChangeCustomerAddressService } from "./change-customer-address-service";
 import { Customer } from "../../entities/customer";
 import { Address } from "../../value-objects";
+import { ChangeAddressCustomerEventProvider } from "../../../../main/factories/change-customer-address-event-provider";
 
 interface SutInterface {
   sut: ChangeCustomerAddressService;
@@ -10,9 +11,7 @@ interface SutInterface {
 }
 
 const makeEventStub = (): EventProvider<any> => {
-  const eventStub: EventProvider<any> = {
-    dispatch: jest.fn(),
-  };
+  const eventStub = new ChangeAddressCustomerEventProvider();
   return eventStub;
 };
 const makeSut = (): SutInterface => {

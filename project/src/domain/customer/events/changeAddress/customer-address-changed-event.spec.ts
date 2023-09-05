@@ -1,6 +1,8 @@
 import { CustomerAddressChangedEvent } from "./customer-address-changed-event";
 import { customerDispatcher } from "../customer-dispatcher";
-import { SendLogHandler } from "./handlers/send-log-handler";
+import { SendLogWhenAddressIsChanged } from "./handlers/send-log-when-address-is-changed-handler";
+import { Customer } from "../../entities/customer";
+import { Address } from "../../value-objects";
 
 describe("Customer Address Changed Event", () => {
   beforeEach(() => {
@@ -9,7 +11,7 @@ describe("Customer Address Changed Event", () => {
 
   describe("register", () => {
     it("should register an event handler", () => {
-      const eventHandler = new SendLogHandler();
+      const eventHandler = new SendLogWhenAddressIsChanged();
       customerDispatcher.register("CustomerAddressChangedEvent", eventHandler);
 
       expect(
@@ -27,9 +29,9 @@ describe("Customer Address Changed Event", () => {
 
   describe("unregister", () => {
     it("should unregister eventHandlers", () => {
-      const eventToUnregisterHandler = new SendLogHandler();
-      const eventToUnregisterHandler2 = new SendLogHandler();
-      const eventToUnregisterHandler3 = new SendLogHandler();
+      const eventToUnregisterHandler = new SendLogWhenAddressIsChanged();
+      const eventToUnregisterHandler2 = new SendLogWhenAddressIsChanged();
+      const eventToUnregisterHandler3 = new SendLogWhenAddressIsChanged();
       customerDispatcher.register(
         "CustomerAddressChangedEvent",
         eventToUnregisterHandler
@@ -101,9 +103,9 @@ describe("Customer Address Changed Event", () => {
 
   describe("unregisterAll", () => {
     it("should unregister all eventHandlers", () => {
-      const eventToUnregisterAllHandler = new SendLogHandler();
-      const eventToUnregisterAllHandler2 = new SendLogHandler();
-      const eventToUnregisterAllHandler3 = new SendLogHandler();
+      const eventToUnregisterAllHandler = new SendLogWhenAddressIsChanged();
+      const eventToUnregisterAllHandler2 = new SendLogWhenAddressIsChanged();
+      const eventToUnregisterAllHandler3 = new SendLogWhenAddressIsChanged();
       customerDispatcher.register(
         "CustomerAddressChangedEvent",
         eventToUnregisterAllHandler
@@ -143,7 +145,7 @@ describe("Customer Address Changed Event", () => {
 
   describe("notify", () => {
     it("should notify ", () => {
-      const eventLogHandler = new SendLogHandler();
+      const eventLogHandler = new SendLogWhenAddressIsChanged();
 
       const handlerSpy = jest.spyOn(eventLogHandler, "handle");
 
@@ -151,9 +153,18 @@ describe("Customer Address Changed Event", () => {
         "CustomerAddressChangedEvent",
         eventLogHandler
       );
-
+      const customer = new Customer({ id: "1", name: "Testing Name" });
+      const address = new Address({
+        city: "testing city",
+        country: "testing country",
+        number: "testing number",
+        street: "testing street",
+        zipcode: "testing zipcode",
+      });
       const customerAddressChangedEvent = new CustomerAddressChangedEvent({
-        message: "Endereço do cliente: {id}, {nome} alterado para: {endereco}",
+        id: customer.id,
+        name: customer.name,
+        address,
       });
 
       customerDispatcher.notify(customerAddressChangedEvent);

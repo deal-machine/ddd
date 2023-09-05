@@ -13,6 +13,7 @@ export class CreateCustomerService {
 
   constructor({ event, uuid }: CreateCustomerServiceConstructor) {
     this.event = event;
+    this.event = event;
     this.uuid = uuid;
   }
 
