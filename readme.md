@@ -277,6 +277,99 @@ Contextos:
 
 <br><br><br>
 
+# Event Storming
+
+#### Visa ser leve e dinâmico, utiliza-se de ferramentas didáticas como postits, papéis, _cards_ coloridos.
+
+### Reunião essencial para identificar melhor os elementos do DDD. É um método baseado em _workshop_ para descobrir rapidamente o que está acontecendo no domínio de um programa de _software_.
+
+- Criado por **Alberto Brandolini**
+- Acontece em forma de _workshop_
+- Deve envolver os _Domain Experts_ e a área técnica
+- Ajuda a entender o domínio através dos eventos gerados por ele
+
+<hr>
+
+### _Event_ - Evento
+
+- verbo no passado
+- relevante para os _domain experts_
+- possivelmente finalizam fases
+- são gerados através de:
+  - comandos;
+  - sistemas externos;
+  - resultado do tempo;
+  - consequência de politicas;
+  - outros eventos.
+
+### _Command_ - Comando
+
+- verbo no presente
+- realizado pelo ator - deve envolver um ator
+- precede um evento
+
+### Dados para tomada de decisão
+
+- Dados necessários para tomada de decisões
+
+> The data needed in order to make that decision
+
+### _Policy_ - Política
+
+- quando algo acontece (como se fosse uma tomada de decisão)
+- "_whenever_"
+- são gerados através de eventos
+- são regras e definições que geram comandos ou eventos
+
+### _Timeline_ - Linha do Tempo
+
+- define os acontecimentos cronologicamente
+- sempre possui um ator envolvido
+- envolve um evento e um comando
+- coisas podem acontecer paralelamente
+
+### _Read Model_ - Modelo de Leitura
+
+- consultas
+- pode gerar um comando
+- geralmente uma tela, board, papel, notificação qualquer lugar que exiba informações
+
+### _External Systems_ - Sistemas Externos
+
+- são integrações ou ações de sistemas fora do nosso domínio
+
+### _Aggregates_ - Agregados
+
+- é um _cluster_(conjunto) de objetos importantes para o domínio
+- entidades relacionadas
+
+### _Hotspot_ - "Ponto polêmico"
+
+#### _Risks and Ideas_ - Riscos e Ideias
+
+- _cards_ para:
+  - riscos
+  - problemas
+  - ideias
+  - oportunidades
+
+#### _Arrow voting_ - Setas de votação
+
+- utilizadas em conflitos de decisões, ações, fluxos, riscos e ideias
+- uma votação através de setas apontadas para os _cards_ sugeridos
+
+<br>
+
+[Board Example](https://miro.com/app/board/o9J_kpZJAAE=/)
+
+### _Flow_ - Fluxo
+
+![board example](./resources/eventstormingboard.png)
+
+<br>
+
+<br><br><br>
+
 <h1 align="center"> Domain Storytelling </h1>
 <h4 align="right"> Forma fácil e gráfica de representar uma narrativa de domínio, pela perspectiva de um atuante. </h4>
 
@@ -337,89 +430,3 @@ Contextos:
         </ul>
         <br>
 </dl>
-<br>
-<h1 align="center"> Event Storming </h1>
-<h4 align="right"> Visa ser leve e dinâmico, 
-utiliza-se de ferramentas didaticas como postits, papeis, cards coloridos </h4>
-
-<h2 align="justify"> Reunião essencial para identificar melhor os elementos do DDD. É um método baseado em workshop para descobrir rapidamente o que está acontecendo no domínio de um programa de software </h2>
-
-<br>
-<ul>
-    eventos
-    <ul>
-        <li>
-        algo que aconteceu e as pessoas se importam
-        </li>
-        <li>
-        sempre no passado, pode ser cronometrado, resultado de algo importante        
-        </li>
-        <li>
-        são gerados através de sistemas, telas, politicas e até outros eventos  
-        </li>
-        <li>
-        eventos são definidos por domain experts
-        </li>
-    </ul>
-    comandos
-    <ul>
-        <li>
-        inverso do evento
-        </li>
-        <li>
-        ação iniciada pelo ator, sempre no presente        
-        </li>
-        <li>
-        para todo evento há um comando realizado  
-        </li>
-    </ul>
-    linha do tempo
-    <ul>
-        <li>define os acontecimentos cronologicamente</li>
-        <li>sempre possui um ator envolvido</li>
-        <li>envolve um evento e um comando</li>
-    </ul>
-    <div align="center" >
-            <figure>
-            <img src="./resources/timeline.png" alt="timeline example" width="300" height="200"/>
-            </figure>
-        </div>
-    modelo de leitura
-    <ul>
-        <li>
-            pode gerar um comando
-        </li>
-        <li>
-            geralmente uma tela, board, papel, notificação qualquer lugar que exiba informações
-        </li>
-    </ul>
-    politica
-    <ul>
-        <li>
-            são regras e definições que geram comandos ou eventos
-        </li>
-    </ul>
-    sistemas externos
-    <ul>
-        <li>
-            são integrações ou ações de sistemas fora do nosso domínio
-        </li>
-    </ul>
-    aggregate
-    <ul>
-        <li>
-            é um <i>cluster</i> (conjunto) de objetos importantes para o dominio, entidades relacionadas
-        </li>
-    </ul>
-</ul>
-<br>
-<div align="center" >
-            <figure>
-            <img src="./resources/eventstormingboard.png" alt="event storming board example" width="600" height="350"/>
-<figcaption>
-            <a href="https://miro.com/app/board/o9J_kpZJAAE=/" rel="board example" target="_blank">
-    <b>example board</b>
-</a>
-            </figcaption>
-            </figure>
-        </div>
