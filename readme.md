@@ -370,63 +370,59 @@
 
 <br><br><br>
 
-<h1 align="center"> Domain Storytelling </h1>
-<h4 align="right"> Forma fácil e gráfica de representar uma narrativa de domínio, pela perspectiva de um atuante. </h4>
+# Domain Storytelling
 
-<h3 align="justify"> Nos ajudará a entender o domínio, estabelecer uma linguagem ubíqua, evitar mal-entendidos, esclarecer requisitos de software, estruturar e implementar software corretamente, desenhar processos. </h3>
+#### Forma fácil e gráfica de representar uma narrativa de domínio, pela perspectiva de um atuante.
+
+### Nos ajudará a entender o domínio, estabelecer uma linguagem ubíqua, evitar mal-entendidos, esclarecer requisitos de software, estruturar e implementar software corretamente, desenhar processos.
+
 <br>
-<h2>Linguagem Pictográfica</h2>
-<dl>
-    <dt><b> Atores - <i>Actors</i></b></dt>
-        <dd>Um ator ou atores</dd>
-        <dd>Pode ser uma pessoa, um grupo de pessos, um objeto ou um sistema</dd>
-         <div align="center" >
-            <figure>
-            <img src="./resources/actors.png" alt="actors example" width="350"     height="150"/>
-            </figure>
-        </div>
-    <br>
-    <dt><b> Objetor de trabalho - <i>Work Objects</i></b></dt>
-        <dd>São objetos utilizados pelos atores</dd>
-        <dd>Pode ser documentos, objetos, interações físicas ou digitais</dd>
-        <div align="center" >
-            <figure>
-            <img src="./resources/workobjects.png" alt="work objects example" width="350"     height="150"/>
-            </figure>
-        </div>
-    <br>
-     <dt><b> Atividades - <i>Activities</i></b></dt>
-        <dd>São as ações dos atores com os objetos de trabalho</dd>
-        <div align="center" >
-            <figure>
-            <img src="./resources/activity.png" alt="activity example" width="350"     height="150"/>
-            </figure>
-        </div>
-    <br>
-    <dt><b> Números sequênciais - <i>Sequence Numbers</i></b></dt>
-        <dd>Indicam o fluxo da história</dd>
-    <br>
-    <dt><b> Anotações - <i>Annotations</i></b></dt>
-        <dd>São Informações que são importantes</dd>
-        <dd>Para detalhamento, para fluxo, para gatilhos de ações ou eventos</dd>
-    <br>
-    <dt><b> Grupos - <i>Groups</i></b></dt>
-        <dd>Representam parte da história</dd>
-        <dd>Como ações repetidas, subdomínios, limitações, processos, etc</dd>
-    <br>
-    <dt><b> Cores - <i>Colors</i></b></dt>
-        <dd>Trazem ênfase e organização</dd>
-    <br>
-    <dt><b> Escopo atual vs Escopo desejado</b></dt>
-        <dd>Escopo atual representa exatamente a historia do fluxo de negócio, o escopo desejado inclui possiveis mudanças ou melhorias que não são reais, ou ainda não foram implementados</dd>
-    <dt><b> Domínios puros e domínios digitalizados</b></dt>
-    <dd>Detalhes das atividades feitas de maneira natual, dentro da realidade do fluxo. Digitalizado inclui as tecnologias utilizadas.</dd>
-        <dt><b>Equipe de trabalho</b></dt>
-        <ul>
-            <li>Domain Expert vai contar a história</li>
-            <li>Ouvintes quaisquer interessados</li>
-            <li>Moderador vai conduzir as conversas e manter dentro dos assuntos de interesse</li>
-            <li>Modelador irá desenhar os fluxos das histórias na linguagem adequada e com anotações</li>           
-        </ul>
-        <br>
-</dl>
+
+---
+
+### Linguagem Pictográfica
+
+- _Actors_ - Atores
+  - Pode ser uma pessoa, um grupo de pessos, um objeto ou um sistema
+- _Work Objects_ - Objetos de trabalho
+  - São objetos utilizados pelos atores
+  - Pode ser documentos, objetos, interações físicas ou digitais
+- _Activities_ - Atividades
+  - São as ações dos atores com os objetos de trabalho
+- _Sequence Numbers_ - Números sequênciais
+  - Indicam o fluxo da história
+- _Annotations_ - Anotações
+  - São Informações que são importantes
+  - Para detalhamento, para fluxo, para gatilhos de ações ou eventos
+- _Groups_ - Grupos
+  - Representam parte da história
+  - Como ações repetidas, subdomínios, limitações, processos, etc
+- _Colors_ - Cores
+  - Trazem ênfase e organizaçã
+
+---
+
+### Escopo atual vs Escopo desejado
+
+- Escopo atual
+  - representa exatamente a história do fluxo de negócio
+- escopo desejado
+  - inclui possíveis mudanças ou melhorias que não são reais, ou ainda não foram implementados.
+
+### Domínios puros e domínios digitalizados
+
+- Puro
+  - Detalhes das atividades feitas de maneira natual, dentro da realidade do fluxo.
+- Digitalizado
+  - inclui as tecnologias da informação utilizadas.
+
+### Equipe de trabalho
+
+- _Domain Expert_
+  - vai contar a história
+- Ouvintes
+  - qualquer interessado
+- Moderador
+  - vai conduzir as conversas e manter dentro dos assuntos de interesse
+- Modelador
+  - irá desenhar os fluxos das histórias na linguagem adequada e com anotações
