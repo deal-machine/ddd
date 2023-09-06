@@ -277,6 +277,8 @@
 
 # Event Storming
 
+[Event Storming Board](https://whimsical.com/event-storming-JtGC65F4b7zDc2XfYS6gpu)
+
 #### Visa ser leve e dinâmico, utiliza-se de ferramentas didáticas como postits, papéis, _cards_ coloridos.
 
 ### Reunião essencial para identificar melhor os elementos do DDD. É um método baseado em _workshop_ para descobrir rapidamente o que está acontecendo no domínio de um programa de _software_.
