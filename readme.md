@@ -84,7 +84,11 @@
 
 > "A Bounded Context is an explicit boundary within which a domain model exists. Inside the boundary all terms and phrases of the Ubiquitous Language have specific meaning, and the model reflects the Language with exactness"
 
-> "Um _Bounded Context_ é um limite explícito dentro do qual um modelo de domínio existe. Dentro desse limite, todos os termos e frases da Linguagem Ubíqua possuem significados específicos, e o modelo reflete a Linguagem com precisão."
+> "Um Contexto demilitado é um limite explícito dentro do qual um modelo de domínio existe. Dentro desse limite, todos os termos e frases da Linguagem Ubíqua possuem significados específicos, e o modelo reflete a Linguagem com precisão."
+
+<br>
+
+![board example](./resources/contextmap.png)
 
 <br>
 
@@ -96,22 +100,16 @@
 
 #### Visão estratégica e modelagem estratégica.
 
-Contextos:
+**Contextos**:
 
-1. Venda de ingressos
-2. Suporte ao cliente
-3. Vendas de ingressos parceiros
-4. Pagamentos
+1. Checkout
+2. Customer
+3. Payment
+4. Delivery
+5. Production
+6. Management
 
 <br>
-
--- Venda de ingressos -> **parceria** <- Venda de ingressos parceiros
-
--- Venda de ingressos(D) -> **cliente/fornecedor** <- Pagamentos(U)
-
--- Venda de ingressos(U) -> **fornecedor/cliente** <- Suporte ao cliente(D)
-
--- Pagamento <-> ACL -> **conformista** <- ACL <-> _Gateway_ de pagamentos (Serviço externo)
 
 ### Definições
 
@@ -136,7 +134,7 @@ Contextos:
 ### _*Domain Model Patterns*_
 
 - _Entities_ - entidades
-- _Value Objects_ - objetos de valor
+- _Value Objects_ - (OV) objetos de valor
 - _Repositories_ - repositórios
 - _Domain Services_ - serviços de domínio
 
@@ -360,13 +358,13 @@ Contextos:
 
 <br>
 
-[Board Example](https://miro.com/app/board/o9J_kpZJAAE=/)
+![Cards Example](./resources/cards.png)
+
+<br>
 
 ### _Flow_ - Fluxo
 
 ![board example](./resources/eventstormingboard.png)
-
-<br>
 
 <br><br><br>
 
